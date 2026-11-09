@@ -1,0 +1,23 @@
+// Stickman house style: hand-inked black lines of varying weight, flat muted earthy colours.
+export const INK = '#1C1A17';
+export const PAPER = '#EFE6D2';
+export const CREAM = '#E7DCC2';
+export const TAN = '#C6B08A';
+export const TAN_D = '#A68F6C';
+export const SAGE = '#9EAC8D';
+export const SAGE_D = '#7F8C70';
+export const DUST = '#A9A6A0';
+export const NAVY = '#36435E';
+export const NAVY_D = '#28324A';
+export const BRICK = '#A04D3C';
+export const BRICK_D = '#7F3B2E';
+export const OLIVE = '#7E7C4A';
+export const OLIVE_D = '#626038';
+export const MUSTARD = '#D4A743';
+export const MUSTARD_D = '#AF8833';
+export const KHAKI = '#BCAA7B';
+export const KHAKI_D = '#9C8A5E';
+export const BROWN = '#7B5C41';
+export const BROWN_D = '#5E4430';
+export const GLASS = '#D6E2DF';
+export const WHITE = '#FBF8F1';

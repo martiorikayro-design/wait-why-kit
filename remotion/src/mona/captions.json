@@ -1,0 +1,598 @@
+[
+ {
+  "words": [
+   {
+    "text": "THE",
+    "raw": "The",
+    "at": 0.15
+   },
+   {
+    "text": "MONA",
+    "raw": "Mona",
+    "at": 0.225
+   },
+   {
+    "text": "LISA",
+    "raw": "Lisa",
+    "at": 0.5
+   },
+   {
+    "text": "BECAME",
+    "raw": "became",
+    "at": 0.825
+   },
+   {
+    "text": "A",
+    "raw": "a",
+    "at": 1.113
+   },
+   {
+    "text": "SUPERSTAR",
+    "raw": "superstar",
+    "at": 1.188
+   }
+  ],
+  "start": 0.0,
+  "end": 1.712
+ },
+ {
+  "words": [
+   {
+    "text": "BECAUSE",
+    "raw": "because",
+    "at": 1.712
+   },
+   {
+    "text": "SOMEONE",
+    "raw": "someone",
+    "at": 1.925
+   },
+   {
+    "text": "STOLE",
+    "raw": "stole",
+    "at": 2.225
+   },
+   {
+    "text": "IT",
+    "raw": "it.",
+    "at": 2.525
+   }
+  ],
+  "start": 1.712,
+  "end": 2.925
+ },
+ {
+  "words": [
+   {
+    "text": "IN",
+    "raw": "In",
+    "at": 2.925
+   },
+   {
+    "text": "AUGUST",
+    "raw": "August",
+    "at": 3.025
+   },
+   {
+    "text": "NINETEEN",
+    "raw": "nineteen",
+    "at": 3.312
+   },
+   {
+    "text": "ELEVEN",
+    "raw": "eleven,",
+    "at": 3.638
+   }
+  ],
+  "start": 2.925,
+  "end": 3.987
+ },
+ {
+  "words": [
+   {
+    "text": "A",
+    "raw": "a",
+    "at": 3.987
+   },
+   {
+    "text": "HANDYMAN",
+    "raw": "handyman",
+    "at": 4.05
+   },
+   {
+    "text": "SLIPPED",
+    "raw": "slipped",
+    "at": 4.537
+   },
+   {
+    "text": "INTO",
+    "raw": "into",
+    "at": 4.812
+   },
+   {
+    "text": "THE",
+    "raw": "the",
+    "at": 4.987
+   },
+   {
+    "text": "LOUVRE",
+    "raw": "Louvre",
+    "at": 5.075
+   }
+  ],
+  "start": 3.987,
+  "end": 5.388
+ },
+ {
+  "words": [
+   {
+    "text": "IN",
+    "raw": "in",
+    "at": 5.388
+   },
+   {
+    "text": "A",
+    "raw": "a",
+    "at": 5.463
+   },
+   {
+    "text": "WHITE",
+    "raw": "white",
+    "at": 5.525
+   },
+   {
+    "text": "WORK",
+    "raw": "work",
+    "at": 5.725
+   },
+   {
+    "text": "SMOCK",
+    "raw": "smock.",
+    "at": 5.95
+   }
+  ],
+  "start": 5.388,
+  "end": 6.425
+ },
+ {
+  "words": [
+   {
+    "text": "HE'D",
+    "raw": "He'd",
+    "at": 6.425
+   },
+   {
+    "text": "HELPED",
+    "raw": "helped",
+    "at": 6.562
+   },
+   {
+    "text": "PUT",
+    "raw": "put",
+    "at": 6.737
+   },
+   {
+    "text": "THE",
+    "raw": "the",
+    "at": 6.862
+   },
+   {
+    "text": "MONA",
+    "raw": "Mona",
+    "at": 6.95
+   },
+   {
+    "text": "LISA",
+    "raw": "Lisa",
+    "at": 7.225
+   }
+  ],
+  "start": 6.425,
+  "end": 7.463
+ },
+ {
+  "words": [
+   {
+    "text": "BEHIND",
+    "raw": "behind",
+    "at": 7.463
+   },
+   {
+    "text": "GLASS",
+    "raw": "glass.",
+    "at": 7.8
+   }
+  ],
+  "start": 7.463,
+  "end": 8.4
+ },
+ {
+  "words": [
+   {
+    "text": "HE",
+    "raw": "He",
+    "at": 8.4
+   },
+   {
+    "text": "LIFTED",
+    "raw": "lifted",
+    "at": 8.525
+   },
+   {
+    "text": "HER",
+    "raw": "her",
+    "at": 8.812
+   },
+   {
+    "text": "OFF",
+    "raw": "off",
+    "at": 8.912
+   },
+   {
+    "text": "THE",
+    "raw": "the",
+    "at": 9.088
+   },
+   {
+    "text": "WALL",
+    "raw": "wall,",
+    "at": 9.175
+   }
+  ],
+  "start": 8.4,
+  "end": 9.45
+ },
+ {
+  "words": [
+   {
+    "text": "WRAPPED",
+    "raw": "wrapped",
+    "at": 9.45
+   },
+   {
+    "text": "HER",
+    "raw": "her",
+    "at": 9.713
+   },
+   {
+    "text": "IN",
+    "raw": "in",
+    "at": 9.812
+   },
+   {
+    "text": "HIS",
+    "raw": "his",
+    "at": 9.887
+   },
+   {
+    "text": "SMOCK",
+    "raw": "smock,",
+    "at": 10.0
+   }
+  ],
+  "start": 9.45,
+  "end": 10.312
+ },
+ {
+  "words": [
+   {
+    "text": "AND",
+    "raw": "and",
+    "at": 10.312
+   },
+   {
+    "text": "WALKED",
+    "raw": "walked",
+    "at": 10.425
+   },
+   {
+    "text": "OUT",
+    "raw": "out.",
+    "at": 10.725
+   }
+  ],
+  "start": 10.312,
+  "end": 11.075
+ },
+ {
+  "words": [
+   {
+    "text": "NOBODY",
+    "raw": "Nobody",
+    "at": 11.075
+   },
+   {
+    "text": "NOTICED",
+    "raw": "noticed",
+    "at": 11.425
+   },
+   {
+    "text": "FOR",
+    "raw": "for",
+    "at": 11.738
+   },
+   {
+    "text": "A",
+    "raw": "a",
+    "at": 11.838
+   },
+   {
+    "text": "WHOLE",
+    "raw": "whole",
+    "at": 11.9
+   },
+   {
+    "text": "DAY",
+    "raw": "day.",
+    "at": 12.125
+   }
+  ],
+  "start": 11.075,
+  "end": 12.5
+ },
+ {
+  "words": [
+   {
+    "text": "GUARDS",
+    "raw": "Guards",
+    "at": 12.5
+   },
+   {
+    "text": "FIGURED",
+    "raw": "figured",
+    "at": 12.825
+   },
+   {
+    "text": "SHE",
+    "raw": "she",
+    "at": 13.125
+   },
+   {
+    "text": "WAS",
+    "raw": "was",
+    "at": 13.213
+   },
+   {
+    "text": "OFF",
+    "raw": "off",
+    "at": 13.325
+   }
+  ],
+  "start": 12.5,
+  "end": 13.512
+ },
+ {
+  "words": [
+   {
+    "text": "BEING",
+    "raw": "being",
+    "at": 13.512
+   },
+   {
+    "text": "PHOTOGRAPHED",
+    "raw": "photographed.",
+    "at": 13.75
+   }
+  ],
+  "start": 13.512,
+  "end": 14.463
+ },
+ {
+  "words": [
+   {
+    "text": "WHEN",
+    "raw": "When",
+    "at": 14.463
+   },
+   {
+    "text": "THE",
+    "raw": "the",
+    "at": 14.588
+   },
+   {
+    "text": "MUSEUM",
+    "raw": "museum",
+    "at": 14.662
+   },
+   {
+    "text": "REOPENED",
+    "raw": "reopened,",
+    "at": 15.05
+   }
+  ],
+  "start": 14.463,
+  "end": 15.55
+ },
+ {
+  "words": [
+   {
+    "text": "CROWDS",
+    "raw": "crowds",
+    "at": 15.55
+   },
+   {
+    "text": "LINED",
+    "raw": "lined",
+    "at": 15.925
+   },
+   {
+    "text": "UP",
+    "raw": "up",
+    "at": 16.163
+   },
+   {
+    "text": "TO",
+    "raw": "to",
+    "at": 16.288
+   },
+   {
+    "text": "STARE",
+    "raw": "stare",
+    "at": 16.375
+   }
+  ],
+  "start": 15.55,
+  "end": 16.637
+ },
+ {
+  "words": [
+   {
+    "text": "AT",
+    "raw": "at",
+    "at": 16.637
+   },
+   {
+    "text": "FOUR",
+    "raw": "four",
+    "at": 16.762
+   },
+   {
+    "text": "EMPTY",
+    "raw": "empty",
+    "at": 17.025
+   },
+   {
+    "text": "HOOKS",
+    "raw": "hooks.",
+    "at": 17.325
+   }
+  ],
+  "start": 16.637,
+  "end": 17.825
+ },
+ {
+  "words": [
+   {
+    "text": "SHE",
+    "raw": "She",
+    "at": 17.825
+   },
+   {
+    "text": "SPENT",
+    "raw": "spent",
+    "at": 17.95
+   },
+   {
+    "text": "TWO",
+    "raw": "two",
+    "at": 18.188
+   },
+   {
+    "text": "YEARS",
+    "raw": "years",
+    "at": 18.4
+   },
+   {
+    "text": "IN",
+    "raw": "in",
+    "at": 18.663
+   },
+   {
+    "text": "A",
+    "raw": "a",
+    "at": 18.738
+   },
+   {
+    "text": "TRUNK",
+    "raw": "trunk",
+    "at": 18.8
+   }
+  ],
+  "start": 17.825,
+  "end": 19.062
+ },
+ {
+  "words": [
+   {
+    "text": "IN",
+    "raw": "in",
+    "at": 19.062
+   },
+   {
+    "text": "HIS",
+    "raw": "his",
+    "at": 19.137
+   },
+   {
+    "text": "APARTMENT",
+    "raw": "apartment.",
+    "at": 19.275
+   }
+  ],
+  "start": 19.062,
+  "end": 20.475
+ },
+ {
+  "words": [
+   {
+    "text": "HE",
+    "raw": "He",
+    "at": 20.475
+   },
+   {
+    "text": "DIDN'T",
+    "raw": "didn't",
+    "at": 20.575
+   },
+   {
+    "text": "STEAL",
+    "raw": "steal",
+    "at": 20.8
+   },
+   {
+    "text": "THE",
+    "raw": "the",
+    "at": 21.113
+   },
+   {
+    "text": "WORLD'S",
+    "raw": "world's",
+    "at": 21.2
+   }
+  ],
+  "start": 20.475,
+  "end": 21.6
+ },
+ {
+  "words": [
+   {
+    "text": "MOST",
+    "raw": "most",
+    "at": 21.6
+   },
+   {
+    "text": "FAMOUS",
+    "raw": "famous",
+    "at": 21.887
+   },
+   {
+    "text": "PAINTING",
+    "raw": "painting.",
+    "at": 22.3
+   }
+  ],
+  "start": 21.6,
+  "end": 22.925
+ },
+ {
+  "words": [
+   {
+    "text": "HE",
+    "raw": "He",
+    "at": 22.925
+   },
+   {
+    "text": "MADE",
+    "raw": "made",
+    "at": 23.075
+   },
+   {
+    "text": "IT",
+    "raw": "it.",
+    "at": 23.325
+   }
+  ],
+  "start": 22.925,
+  "end": 23.85
+ }
+]
