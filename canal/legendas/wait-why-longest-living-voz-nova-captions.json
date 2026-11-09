@@ -1,0 +1,472 @@
+[
+ {
+  "start": 0.0,
+  "end": 0.71,
+  "words": [
+   {
+    "text": "ONE",
+    "raw": "One",
+    "at": 0.0
+   },
+   {
+    "text": "OF",
+    "raw": "of",
+    "at": 0.26
+   },
+   {
+    "text": "THESE",
+    "raw": "these",
+    "at": 0.3
+   },
+   {
+    "text": "ANIMALS",
+    "raw": "animals",
+    "at": 0.4
+   }
+  ]
+ },
+ {
+  "start": 0.71,
+  "end": 2.49,
+  "words": [
+   {
+    "text": "MIGHT",
+    "raw": "might",
+    "at": 0.76
+   },
+   {
+    "text": "NEVER",
+    "raw": "never",
+    "at": 1.2
+   },
+   {
+    "text": "DIE",
+    "raw": "die",
+    "at": 1.42
+   }
+  ]
+ },
+ {
+  "start": 2.49,
+  "end": 3.77,
+  "words": [
+   {
+    "text": "NUMBER",
+    "raw": "Number",
+    "at": 2.54
+   },
+   {
+    "text": "SIX",
+    "raw": "six",
+    "at": 2.54
+   }
+  ]
+ },
+ {
+  "start": 3.77,
+  "end": 4.27,
+  "words": [
+   {
+    "text": "JONATHAN",
+    "raw": "Jonathan",
+    "at": 3.82
+   }
+  ]
+ },
+ {
+  "start": 4.27,
+  "end": 5.63,
+  "words": [
+   {
+    "text": "THE",
+    "raw": "the",
+    "at": 4.32
+   },
+   {
+    "text": "GIANT",
+    "raw": "giant",
+    "at": 4.5
+   },
+   {
+    "text": "TORTOISE",
+    "raw": "tortoise",
+    "at": 4.8
+   }
+  ]
+ },
+ {
+  "start": 5.63,
+  "end": 7.81,
+  "words": [
+   {
+    "text": "ABOUT",
+    "raw": "about",
+    "at": 5.68
+   },
+   {
+    "text": "194",
+    "raw": "194",
+    "at": 5.94
+   },
+   {
+    "text": "YEARS",
+    "raw": "years",
+    "at": 6.34
+   },
+   {
+    "text": "OLD",
+    "raw": "old",
+    "at": 7.22
+   }
+  ]
+ },
+ {
+  "start": 7.81,
+  "end": 8.67,
+  "words": [
+   {
+    "text": "FIVE",
+    "raw": "Five",
+    "at": 7.86
+   }
+  ]
+ },
+ {
+  "start": 8.67,
+  "end": 9.89,
+  "words": [
+   {
+    "text": "A",
+    "raw": "a",
+    "at": 8.72
+   },
+   {
+    "text": "BOWHEAD",
+    "raw": "bowhead",
+    "at": 8.84
+   },
+   {
+    "text": "WHALE",
+    "raw": "whale",
+    "at": 9.2
+   }
+  ]
+ },
+ {
+  "start": 9.89,
+  "end": 11.25,
+  "words": [
+   {
+    "text": "ABOUT",
+    "raw": "about",
+    "at": 9.94
+   },
+   {
+    "text": "211",
+    "raw": "211",
+    "at": 10.04
+   }
+  ]
+ },
+ {
+  "start": 11.25,
+  "end": 11.75,
+  "words": [
+   {
+    "text": "FOUR",
+    "raw": "Four",
+    "at": 11.3
+   }
+  ]
+ },
+ {
+  "start": 11.75,
+  "end": 13.29,
+  "words": [
+   {
+    "text": "A",
+    "raw": "a",
+    "at": 11.8
+   },
+   {
+    "text": "GREENLAND",
+    "raw": "Greenland",
+    "at": 12.04
+   },
+   {
+    "text": "SHARK",
+    "raw": "shark",
+    "at": 12.36
+   }
+  ]
+ },
+ {
+  "start": 13.29,
+  "end": 15.13,
+  "words": [
+   {
+    "text": "AT",
+    "raw": "at",
+    "at": 13.34
+   },
+   {
+    "text": "LEAST",
+    "raw": "least",
+    "at": 13.42
+   },
+   {
+    "text": "272",
+    "raw": "272",
+    "at": 13.58
+   }
+  ]
+ },
+ {
+  "start": 15.13,
+  "end": 15.97,
+  "words": [
+   {
+    "text": "THREE",
+    "raw": "Three",
+    "at": 15.18
+   }
+  ]
+ },
+ {
+  "start": 15.97,
+  "end": 16.85,
+  "words": [
+   {
+    "text": "MING",
+    "raw": "Ming",
+    "at": 16.02
+   },
+   {
+    "text": "THE",
+    "raw": "the",
+    "at": 16.02
+   },
+   {
+    "text": "CLAM",
+    "raw": "clam",
+    "at": 16.16
+   }
+  ]
+ },
+ {
+  "start": 16.85,
+  "end": 17.89,
+  "words": [
+   {
+    "text": "507",
+    "raw": "507",
+    "at": 16.9
+   }
+  ]
+ },
+ {
+  "start": 17.89,
+  "end": 18.55,
+  "words": [
+   {
+    "text": "TWO",
+    "raw": "Two",
+    "at": 17.94
+   }
+  ]
+ },
+ {
+  "start": 18.55,
+  "end": 20.17,
+  "words": [
+   {
+    "text": "A",
+    "raw": "a",
+    "at": 18.6
+   },
+   {
+    "text": "DEEP-SEA",
+    "raw": "deep-sea",
+    "at": 18.78
+   },
+   {
+    "text": "GLASS",
+    "raw": "glass",
+    "at": 19.18
+   },
+   {
+    "text": "SPONGE",
+    "raw": "sponge",
+    "at": 19.42
+   }
+  ]
+ },
+ {
+  "start": 20.17,
+  "end": 21.87,
+  "words": [
+   {
+    "text": "ABOUT",
+    "raw": "about",
+    "at": 20.22
+   },
+   {
+    "text": "11,000",
+    "raw": "11,000",
+    "at": 20.4
+   }
+  ]
+ },
+ {
+  "start": 21.87,
+  "end": 23.03,
+  "words": [
+   {
+    "text": "AND",
+    "raw": "And",
+    "at": 21.92
+   },
+   {
+    "text": "NUMBER",
+    "raw": "number",
+    "at": 21.94
+   },
+   {
+    "text": "ONE",
+    "raw": "one",
+    "at": 22.18
+   }
+  ]
+ },
+ {
+  "start": 23.03,
+  "end": 24.53,
+  "words": [
+   {
+    "text": "THE",
+    "raw": "the",
+    "at": 23.08
+   },
+   {
+    "text": "IMMORTAL",
+    "raw": "immortal",
+    "at": 23.12
+   },
+   {
+    "text": "JELLYFISH",
+    "raw": "jellyfish",
+    "at": 23.38
+   }
+  ]
+ },
+ {
+  "start": 24.53,
+  "end": 25.09,
+  "words": [
+   {
+    "text": "WHEN",
+    "raw": "When",
+    "at": 24.58
+   },
+   {
+    "text": "IT'S",
+    "raw": "it's",
+    "at": 24.82
+   },
+   {
+    "text": "HURT",
+    "raw": "hurt",
+    "at": 24.94
+   }
+  ]
+ },
+ {
+  "start": 25.09,
+  "end": 26.21,
+  "words": [
+   {
+    "text": "OR",
+    "raw": "or",
+    "at": 25.14
+   },
+   {
+    "text": "OLD",
+    "raw": "old",
+    "at": 25.58
+   }
+  ]
+ },
+ {
+  "start": 26.21,
+  "end": 26.83,
+  "words": [
+   {
+    "text": "IT",
+    "raw": "it",
+    "at": 26.26
+   },
+   {
+    "text": "CAN",
+    "raw": "can",
+    "at": 26.38
+   },
+   {
+    "text": "TURN",
+    "raw": "turn",
+    "at": 26.46
+   },
+   {
+    "text": "BACK",
+    "raw": "back",
+    "at": 26.62
+   }
+  ]
+ },
+ {
+  "start": 26.83,
+  "end": 27.69,
+  "words": [
+   {
+    "text": "INTO",
+    "raw": "into",
+    "at": 26.88
+   },
+   {
+    "text": "ITS",
+    "raw": "its",
+    "at": 27.1
+   },
+   {
+    "text": "BABY",
+    "raw": "baby",
+    "at": 27.2
+   },
+   {
+    "text": "STAGE",
+    "raw": "stage",
+    "at": 27.38
+   }
+  ]
+ },
+ {
+  "start": 27.69,
+  "end": 29.46,
+  "words": [
+   {
+    "text": "AND",
+    "raw": "and",
+    "at": 27.74
+   },
+   {
+    "text": "START",
+    "raw": "start",
+    "at": 28.32
+   },
+   {
+    "text": "OVER",
+    "raw": "over",
+    "at": 28.52
+   }
+  ]
+ }
+]

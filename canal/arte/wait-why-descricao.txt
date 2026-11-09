@@ -1,0 +1,34 @@
+DESCRIÇÃO DO CANAL (cole em YouTube Studio > Personalização > Informações básicas)
+=====================================================================
+
+Ever wondered why something works the way it does? Wait, Why? turns curious questions into short animated stories you can watch in under a minute.
+
+Our detective investigates surprising science, odd history and everyday mysteries, like why birds can eat chili peppers or how a stolen painting became the most famous in the world. Every fact is checked against reliable sources.
+
+New animated Shorts: curious facts, true stories and top-6 rankings.
+
+Got a question that makes you go "wait... why?" Drop it in the comments. The detective might investigate it next.
+
+
+TRADUÇÃO (só para você entender, não precisa colar)
+---------------------------------------------------
+Já se perguntou por que algo funciona do jeito que funciona? O Wait, Why? transforma perguntas curiosas em histórias animadas curtas, para assistir em menos de um minuto.
+
+Nosso detetive investiga ciência surpreendente, história estranha e mistérios do dia a dia, como por que os pássaros comem pimenta ou como um quadro roubado virou o mais famoso do mundo. Todo fato é conferido em fontes confiáveis.
+
+Novos Shorts animados: curiosidades, histórias reais e rankings de top 6.
+
+Tem uma pergunta que te faz pensar "peraí... por quê?" Deixa nos comentários. O detetive pode investigar no próximo vídeo.
+
+
+PALAVRAS-CHAVE DO CANAL (YouTube Studio > Configurações > Canal)
+----------------------------------------------------------------
+curious facts, did you know, animated shorts, fun facts, history facts, science facts, true stories, stickman animation, explained, why
+
+
+ARQUIVOS
+--------
+- Banner: wait-why-banner-2560x1440.png (o rosto do detetive e o nome ficam na área que aparece no celular)
+- Foto de perfil: wait-why-foto-perfil-800x800.png
+- Marca d'água: wait-why-marca-dagua-150x150.png (YouTube Studio > Personalização > Branding > Marca d'água do vídeo)
+- Ficha do personagem: wait-why-ficha-detetive.png (referência de poses e expressões)

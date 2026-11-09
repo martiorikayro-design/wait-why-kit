@@ -63,3 +63,9 @@ Licenses: Kokoro-82M Apache-2.0; Fredoka SIL OFL 1.1; all music/SFX synthesized 
 - Voz: edge-tts `en-US-AndrewMultilingualNeural`, rate +8% (`pip install edge-tts`; se der erro SSL no container, copie /root/.ccr/ca-bundle.crt por cima do certifi.where() do venv). Plano B: Kokoro `am_fenrir` 1.08.
 - `refazer/refazer-3-videos.md`: tempos antigos das palavras dos 3 primeiros vídeos.
 - As decisões do canal ficam no projeto YOUTUBE (claude/canal-shorts.md); elas valem mais que este README.
+
+## Pasta canal/ (2026-11-09)
+- `canal/legendas/`: .srt (e captions.json) dos 3 vídeos refeitos com a voz nova (Andrew), tempos tirados dos vídeos finais.
+- `canal/arte/`: banner 2560x1440, foto de perfil 800x800, marca d'água 150x150, ficha do Detetive e descrição do canal.
+- `canal/wait-why-publicar-videos.txt`: títulos, descrições e fontes.
+- Não existe um "bundle v4": a versão mais nova do kit é este repositório (o bundle v3 do projeto é a mesma coisa em texto). tools/remap.py e tools/deliver.sh nunca foram salvos fora da sessão que refez os vídeos.
