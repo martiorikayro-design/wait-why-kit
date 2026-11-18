@@ -33,6 +33,8 @@ const T0 = [W.six, W.five, W.four, W.three, W.two, 17.96]; // arrival word of ea
 const ZS = [-4, -12, -20, -28, -36, -44]; // station z
 const Z_INTRO = 2;
 const GLIDE = 1.9, GEND = 0.15;
+const PX_POD = 1.7; // podiums sit to the right of the camera/host path, so nothing ever crosses them
+const CAM_X = 0.45;
 const ss = (u: number) => u * u * u * (u * (u * 6 - 15) + 10);
 const inv = (a: number, b: number, x: number) => clamp01((x - a) / (b - a));
 
@@ -58,7 +60,7 @@ const detAt = (t: number): Det => {
   const changes = [W.six, W.five, W.four, W.three, W.two, W.baby];
   const lc = changes.filter((c) => t >= c).pop() ?? -10;
   const pop = t - lc < 0.35 ? 1 - (t - lc) / 0.35 : 0;
-  if (t >= W.baby) return {key: 'baby', z: ZS[5], x: -0.6, lv, pop};
+  if (t >= W.baby) return {key: 'baby', z: ZS[5], x: -0.45, lv, pop};
   const react = (t0: number) => t > t0 && t < t0 + 0.6;
   let expr: Expr = 'neutral';
   if (t < 2.0) expr = t > W.die - 0.1 ? 'surprised' : 'happy';
@@ -66,7 +68,7 @@ const detAt = (t: number): Det => {
   else if (t > W.and1 && t < W.jelly) expr = 'worried';
   else if (t >= W.jelly && t < W.hurt) expr = 'shock';
   else if (lv >= 5) expr = 'smug';
-  const x = t < 2.0 ? -0.2 : -0.6;
+  const x = t < 2.0 ? 0.0 : -0.45;
   if (k.moving) {
     const dist = Math.abs(k.z - k.from);
     const ph = (dist / 1.15) % 1;
@@ -188,21 +190,21 @@ const Hall: React.FC = () => {
 };
 
 const Podium: React.FC<{z: number; c: string; back?: boolean}> = ({z, c}) => (
-  <group position={[0.65, 0, z]}>
-    <Box p={[0, 0.4, 0]} s={[1.7, 0.8, 1.2]} c={c} />
-    <Box p={[0, 0.84, 0]} s={[1.85, 0.08, 1.35]} c="#fff6df" t={0.025} />
-    <Box p={[0, 1.95, -0.55]} s={[2.0, 2.3, 0.08]} c="#26475a" t={0.03} />
+  <group position={[PX_POD, 0, z]}>
+    <Box p={[0, 0.4, 0]} s={[1.5, 0.8, 1.1]} c={c} />
+    <Box p={[0, 0.84, 0]} s={[1.62, 0.08, 1.22]} c="#fff6df" t={0.025} />
+    <Box p={[0, 1.95, -0.5]} s={[1.6, 2.3, 0.08]} c="#26475a" t={0.03} />
   </group>
 );
 
 const Exhibit: React.FC<{z: number; ex: Ex; t: number; scale?: number; lift?: number}> = ({z, ex, t, scale = 1, lift = 0}) => {
-  const tw = 1.5 * scale;
+  const tw = 1.3 * scale;
   const maxH = 1.55 * scale;
   let w = tw, h = (tw * ex.h) / ex.w;
   if (h > maxH) { h = maxH; w = (h * ex.w) / ex.h; }
   const bottom = 0.89 - (ex.pad * w) / (ex.w - 2 * ex.pad) * 0.5;
   return (
-    <mesh position={[0.65, bottom + h / 2 + lift + 0.03 * Math.sin(t * 2.2 + z), z - 0.2]}>
+    <mesh position={[PX_POD, bottom + h / 2 + lift + 0.03 * Math.sin(t * 2.2 + z), z - 0.2]}>
       <planeGeometry args={[w, h]} />
       <meshBasicMaterial map={ex.tex} transparent alphaTest={0.02} toneMapped={false} />
     </mesh>
@@ -229,7 +231,7 @@ const Detective: React.FC<{t: number; a: Assets}> = ({t, a}) => {
   const lean = walking ? Math.sin(ph * Math.PI * 2) * 0.06 : 0;
   const sc = 1 + 0.14 * d.pop;
   return (
-    <group position={[d.x, 0, d.z + 0.5]}>
+    <group position={[d.x, 0, d.z + 0.3]}>
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0.08, 0.012, 0]}><circleGeometry args={[0.5, 32]} /><meshBasicMaterial color="#3a2a40" transparent opacity={0.36} /></mesh>
       <group position={[0, cy + bob, 0]} rotation={[0, 0, lean]} scale={[sc, sc, 1]}>
         <mesh><planeGeometry args={[w, h]} /><meshBasicMaterial map={m.tex} transparent alphaTest={0.02} toneMapped={false} /></mesh>
@@ -243,16 +245,16 @@ const Rig: React.FC<{t: number}> = ({t}) => {
   const k = track(t);
   const hold = stationHold(t);
   const creep = Math.min(hold, 3.2) * 0.14 + (k.i < 0 ? k.hold * 0.5 : 0);
-  const cz = k.z + 5.6 - creep;
+  const cz = k.z + 6.5 - creep;
   const sign = k.i % 2 ? -1 : 1;
   const roll = THREE.MathUtils.degToRad((k.i < 0 ? 3.5 : sign * 3.2) * (k.moving ? Math.sin(Math.PI * k.u) * 0.6 + 0.4 : 1));
   const kick = [W.six, W.five, W.four, W.three, W.two, W.jelly].reduce((m, c) => {
     const e = t - c; return e >= 0 && e < 0.22 ? (Math.round(e * 30) % 2 ? 1 : -1) * 0.035 * (1 - e / 0.22) : m;
   }, 0);
-  camera.position.set(0.25, 1.45 + kick, cz);
-  camera.lookAt(0.25, 1.3, k.z - creep * 0.2);
+  camera.position.set(CAM_X, 1.45 + kick, cz);
+  camera.lookAt(CAM_X, 1.3, k.z - creep * 0.2);
   camera.rotateZ(roll);
-  (camera as THREE.PerspectiveCamera).fov = 50 - Math.min(hold, 3) * 0.5;
+  (camera as THREE.PerspectiveCamera).fov = 56 - Math.min(hold, 3) * 0.6;
   camera.updateProjectionMatrix();
   return null;
 };
