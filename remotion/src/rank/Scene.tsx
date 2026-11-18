@@ -20,7 +20,7 @@ const pop = (t: number, t0: number, d = 0.25) => (t <= t0 ? 0 : back(clamp((t - 
 const wob = (t: number, t0: number, a: number, hz = 4, dec = 7) => (t < t0 ? 0 : a * Math.exp(-dec * (t - t0)) * Math.cos(2 * Math.PI * hz * (t - t0)));
 
 /* word onsets in composition seconds (voice placed at 0.15 s) */
-const W = {
+export const W = {
   die: 1.47, six: 2.17, ninety4: 4.82, five: 6.92, eleven5: 8.3, four: 9.48, seventy2: 11.11, three: 12.59, seven3: 13.47,
   two: 14.73, thousand: 16.44, and1: 17.83, one: 18.22, immortal: 18.72, jelly: 19.1, hurt: 20.41, old: 20.91, turn: 21.62,
   baby: 22.56, stage: 22.92, start: 23.47, over: 23.76,
@@ -156,10 +156,10 @@ const JellyLife: React.FC<{t: number}> = ({t}) => {
 };
 
 /* ---------------- host: the detective ages with every entry ---------------- */
-const levelAt = (t: number) => (t < W.six ? 0 : t < W.five ? 1 : t < W.four ? 2 : t < W.three ? 3 : t < W.two ? 4 : 5);
+export const levelAt = (t: number) => (t < W.six ? 0 : t < W.five ? 1 : t < W.four ? 2 : t < W.three ? 3 : t < W.two ? 4 : 5);
 const BEARD = [0, 0, 40, 130, 230, 420];
 
-const Aging: React.FC<{lv: number; t: number}> = ({lv, t}) => (
+export const Aging: React.FC<{lv: number; t: number}> = ({lv, t}) => (
   <g>
     {lv >= 1 && <Shape pts={[[-40, -530], [-18, -546], [0, -538], [18, -546], [40, -530], [20, -518], [0, -524], [-20, -518]]} fill={WHITE} w={3.5} seed={5} />}
     {lv >= 1 && [[-56, -546, -40, -540], [40, -540, 56, -546]].map(([a, b, c, d], i) => <Line key={i} pts={[[a, b], [c, d]]} w={3} seed={6 + i} taper={0.5} />)}
@@ -192,7 +192,7 @@ const Aging: React.FC<{lv: number; t: number}> = ({lv, t}) => (
   </g>
 );
 
-const BabyDetective: React.FC<{t: number}> = ({t}) => {
+export const BabyDetective: React.FC<{t: number}> = ({t}) => {
   const giggle = Math.abs(Math.sin(t * 9)) * 8;
   return (
     <g transform={`translate(0 ${-giggle})`}>
@@ -264,7 +264,7 @@ const ENTRIES = [
   {n: 2, t0: W.two, c0: W.thousand - 0.25, c1: W.thousand + 0.5, v: 11000, pre: '~', post: ' YEARS'},
   {n: 1, t0: 17.96, c0: W.jelly, c1: W.jelly, v: -1, pre: '', post: ''},
 ];
-const Badge: React.FC<{t: number}> = ({t}) => {
+export const Badge: React.FC<{t: number}> = ({t}) => {
   const e = [...ENTRIES].reverse().find((x) => t >= x.t0);
   if (!e) return null;
   const s = pop(t, e.t0, 0.3);
@@ -302,7 +302,7 @@ const Badge: React.FC<{t: number}> = ({t}) => {
 
 /* ---------------- captions ---------------- */
 type Chunk = {start: number; end: number; words: {text: string; at: number}[]};
-const Captions: React.FC<{t: number}> = ({t}) => {
+export const Captions: React.FC<{t: number}> = ({t}) => {
   const chunks = CAPS as Chunk[];
   const idx = chunks.findIndex((c) => t >= c.start && t < c.end);
   if (idx < 0) return null;

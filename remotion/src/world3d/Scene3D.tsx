@@ -14,9 +14,9 @@ export const W3D_FPS = 30;
 export const W3D_DUR = 5; // seconds
 const FRAMES = W3D_DUR * W3D_FPS;
 
-const clamp01 = (x: number) => Math.max(0, Math.min(1, x));
-const smooth = (x: number) => { const u = clamp01(x); return u * u * (3 - 2 * u); };
-const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
+export const clamp01 = (x: number) => Math.max(0, Math.min(1, x));
+export const smooth = (x: number) => { const u = clamp01(x); return u * u * (3 - 2 * u); };
+export const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 
 /* ---------- stickman -> texture ---------- */
 const VB = {x: -190, y: -745, w: 380, h: 770};
@@ -66,16 +66,16 @@ const useTextures = () => {
 };
 
 /* ---------- toon materials ---------- */
-const gradient = (() => {
+export const gradient = (() => {
   const d = new Uint8Array([70, 70, 70, 255, 150, 150, 150, 255, 255, 255, 255, 255]);
   const t = new THREE.DataTexture(d, 3, 1, THREE.RGBAFormat);
   t.minFilter = t.magFilter = THREE.NearestFilter; t.needsUpdate = true; return t;
 })();
-const toon = (c: string) => new THREE.MeshToonMaterial({color: c, gradientMap: gradient});
+export const toon = (c: string) => new THREE.MeshToonMaterial({color: c, gradientMap: gradient});
 const INKMAT = new THREE.MeshBasicMaterial({color: '#0b0a0c', side: THREE.BackSide});
 
 /** Box with an inverted-hull ink outline of constant world thickness. */
-const Box: React.FC<{p: [number, number, number]; s: [number, number, number]; c: string; t?: number}> = ({p, s, c, t = 0.035}) => {
+export const Box: React.FC<{p: [number, number, number]; s: [number, number, number]; c: string; t?: number}> = ({p, s, c, t = 0.035}) => {
   const m = useMemo(() => toon(c), [c]);
   return (
     <group position={p}>
@@ -86,7 +86,7 @@ const Box: React.FC<{p: [number, number, number]; s: [number, number, number]; c
     </group>
   );
 };
-const Ball: React.FC<{p: [number, number, number]; r: number; c: string}> = ({p, r, c}) => {
+export const Ball: React.FC<{p: [number, number, number]; r: number; c: string}> = ({p, r, c}) => {
   const m = useMemo(() => toon(c), [c]);
   return (
     <group position={p}>
@@ -97,25 +97,25 @@ const Ball: React.FC<{p: [number, number, number]; r: number; c: string}> = ({p,
 };
 
 /* ---------- painted textures ---------- */
-const canvasTex = (w: number, h: number, draw: (g: CanvasRenderingContext2D) => void, rep?: [number, number]) => {
+export const canvasTex = (w: number, h: number, draw: (g: CanvasRenderingContext2D) => void, rep?: [number, number]) => {
   const c = document.createElement('canvas'); c.width = w; c.height = h;
   draw(c.getContext('2d')!);
   const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 16;
   if (rep) { t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(...rep); }
   return t;
 };
-const floorTex = () => canvasTex(512, 512, (g) => {
+export const floorTex = () => canvasTex(512, 512, (g) => {
   g.fillStyle = '#f3ecd8'; g.fillRect(0, 0, 512, 512);
   g.fillStyle = '#e4d9bd'; g.fillRect(0, 0, 256, 256); g.fillRect(256, 256, 256, 256);
   g.strokeStyle = '#d9a43a'; g.lineWidth = 5; g.strokeRect(2, 2, 508, 508);
   const cols = ['#e0554a', '#2f9e9a', '#d9a43a'];
   for (let i = 0; i < 90; i++) { g.fillStyle = cols[i % 3]; g.beginPath(); g.arc(Math.random() * 512, Math.random() * 512, 2 + Math.random() * 2.5, 0, 7); g.fill(); }
 }, [3, 14]);
-const wallTex = () => canvasTex(512, 512, (g) => {
+export const wallTex = () => canvasTex(512, 512, (g) => {
   g.fillStyle = '#f2b81f'; g.fillRect(0, 0, 512, 512);
   for (let i = 0; i < 2600; i++) { g.fillStyle = `rgba(${Math.random() < 0.5 ? '255,226,120' : '200,130,10'},${0.05 + Math.random() * 0.07})`; g.fillRect(Math.random() * 512, Math.random() * 512, 3 + Math.random() * 22, 2 + Math.random() * 10); }
 }, [4, 1]);
-const frameTex = (i: number) => canvasTex(256, 320, (g) => {
+export const frameTex = (i: number) => canvasTex(256, 320, (g) => {
   g.fillStyle = '#fff6df'; g.fillRect(0, 0, 256, 320);
   const cols = ['#e0554a', '#2f9e9a', '#6c4bb8', '#4aa54a'];
   g.fillStyle = cols[i % 4]; g.fillRect(70, 150, 116, 150);
