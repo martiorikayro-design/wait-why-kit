@@ -18,7 +18,7 @@ export const RANK3D_FPS = 30;
 export const RANK3D_DUR = 25;
 const FRAMES = RANK3D_DUR * RANK3D_FPS;
 
-const DET_VB = {x: -190, y: -745, w: 380, h: 770};
+const DET_VB = {x: -190, y: -745, w: 420, h: 770}; // wider on the right so a pointing arm fits
 const BABY_VB = {x: -150, y: -340, w: 300, h: 370};
 const S = 2.15 / DET_VB.h; // metres per svg unit
 const PX = 1.35; // texture pixels per svg unit
@@ -33,8 +33,10 @@ const T0 = [W.six, W.five, W.four, W.three, W.two, 17.96]; // arrival word of ea
 const ZS = [-4, -12, -20, -28, -36, -44]; // station z
 const Z_INTRO = 2;
 const GLIDE = 1.9, GEND = 0.15;
-const PX_POD = 1.7; // podiums sit to the right of the camera/host path, so nothing ever crosses them
-const CAM_X = 0.45;
+const PX_POD = 1.15; // podium centre (right of the camera/host path, nothing ever crosses it)
+const CAM_X = 0.15;
+const DET_X = -0.95;
+const DET_SCALE = 0.85; // host is a bit smaller than the exhibit
 const ss = (u: number) => u * u * u * (u * (u * 6 - 15) + 10);
 const inv = (a: number, b: number, x: number) => clamp01((x - a) / (b - a));
 
@@ -52,7 +54,7 @@ const stationHold = (t: number) => {
   return k.i >= 0 && !k.moving ? t - (T0[k.i] - GEND) : 0;
 };
 
-type Det = {key: string; z: number; x: number; lv: number; pop: number};
+type Det = {key: string; z: number; x: number; lv: number; pop: number; hop: number};
 const WALK_N = 6;
 const detAt = (t: number): Det => {
   const k = track(t);
@@ -60,7 +62,9 @@ const detAt = (t: number): Det => {
   const changes = [W.six, W.five, W.four, W.three, W.two, W.baby];
   const lc = changes.filter((c) => t >= c).pop() ?? -10;
   const pop = t - lc < 0.35 ? 1 - (t - lc) / 0.35 : 0;
-  if (t >= W.baby) return {key: 'baby', z: ZS[5], x: -0.45, lv, pop};
+  // little hop on arrival at each station and when the hook lands
+  const hop = [...T0.slice(0, 5), W.die].reduce((m, c) => { const e = t - c; return e >= 0 && e < 0.35 ? 0.14 * Math.sin((Math.PI * e) / 0.35) : m; }, 0);
+  if (t >= W.baby) return {key: 'baby', z: ZS[5], x: DET_X, lv, pop, hop};
   const react = (t0: number) => t > t0 && t < t0 + 0.6;
   let expr: Expr = 'neutral';
   if (t < 2.0) expr = t > W.die - 0.1 ? 'surprised' : 'happy';
@@ -68,13 +72,16 @@ const detAt = (t: number): Det => {
   else if (t > W.and1 && t < W.jelly) expr = 'worried';
   else if (t >= W.jelly && t < W.hurt) expr = 'shock';
   else if (lv >= 5) expr = 'smug';
-  const x = t < 2.0 ? 0.0 : -0.45;
+  // acting beat after the surprise: point at the animal (#6, #4, #2) or stroke the chin (#5, #3)
+  let pose = 'n';
+  for (let i = 0; i < 5; i++) if (t >= T0[i] + 0.6 && t < T0[i] + 1.7) pose = i % 2 === 0 ? 'point' : 'chin';
+  const x = DET_X;
   if (k.moving) {
     const dist = Math.abs(k.z - k.from);
     const ph = (dist / 1.15) % 1;
-    return {key: `w${lv}_${Math.floor(ph * WALK_N) % WALK_N}`, z: k.z, x, lv, pop};
+    return {key: `w${lv}_${Math.floor(ph * WALK_N) % WALK_N}`, z: k.z, x, lv, pop, hop};
   }
-  return {key: `s${lv}_${expr}`, z: k.z, x, lv, pop};
+  return {key: `s${lv}_${expr}_${pose}`, z: k.z, x, lv, pop, hop};
 };
 
 /* ---------- textures ---------- */
@@ -90,9 +97,13 @@ const detSvg = (key: string): {url: string; vb: typeof DET_VB} => {
     const [aL, aR] = walkArms(ph);
     return {url: svgUrl(<g><Stick outfit="detective" expr="neutral" legs={walkLegs(ph, 1.3)} armL={aL} armR={aR} prop={false} seed={7} /><Aging lv={lv} t={0} /></g>, DET_VB), vb: DET_VB};
   }
-  const expr = key.split('_')[1] as Expr;
-  const hold = lv <= 2;
-  const armR: Arm = hold ? {elbow: [104, -352], hand: [112, -420]} : ARM_REST_R;
+  const [, e, pose] = key.split('_');
+  const expr = e as Expr;
+  const act = pose === 'point' || pose === 'chin';
+  const hold = lv <= 2 && !act;
+  let armR: Arm = hold ? {elbow: [104, -352], hand: [112, -420]} : ARM_REST_R;
+  if (pose === 'point') armR = {elbow: [122, -400], hand: [206, -452]};
+  if (pose === 'chin') armR = {elbow: [74, -392], hand: [26, -484]};
   const armL: Arm = lv >= 3 ? {elbow: [-84, -330], hand: [-96, -256]} : ARM_REST_L;
   return {url: svgUrl(<g><Stick outfit="detective" expr={expr} armL={armL} armR={armR} prop={hold} seed={7} /><Aging lv={lv} t={0} /></g>, DET_VB), vb: DET_VB};
 };
@@ -148,7 +159,7 @@ const useAssets = (): Assets | null => {
 };
 
 /* ---------- world ---------- */
-const HALL_Z0 = -53, HALL_Z1 = 9, HL = HALL_Z1 - HALL_Z0;
+const HALL_Z0 = -53, HALL_Z1 = 16, HL = HALL_Z1 - HALL_Z0;
 const POD = ['#e0554a', '#2f9e9a', '#6c4bb8', '#4aa54a', '#d9a43a', '#e0554a'];
 const EX_KEYS = ['tortoise', 'bowhead', 'shark', 'clam', 'sponge', 'jelly'];
 
@@ -191,15 +202,17 @@ const Hall: React.FC = () => {
 
 const Podium: React.FC<{z: number; c: string; back?: boolean}> = ({z, c}) => (
   <group position={[PX_POD, 0, z]}>
-    <Box p={[0, 0.4, 0]} s={[1.5, 0.8, 1.1]} c={c} />
-    <Box p={[0, 0.84, 0]} s={[1.62, 0.08, 1.22]} c="#fff6df" t={0.025} />
-    <Box p={[0, 1.95, -0.5]} s={[1.6, 2.3, 0.08]} c="#26475a" t={0.03} />
+    <Box p={[0, 0.4, 0]} s={[1.7, 0.8, 1.1]} c={c} />
+    <Box p={[0, 0.84, 0]} s={[1.82, 0.08, 1.22]} c="#fff6df" t={0.025} />
+    {/* small light aquarium window instead of a wall-sized dark panel */}
+    <Box p={[0, 1.66, -0.5]} s={[1.9, 1.5, 0.06]} c="#7db4b8" t={0.03} />
+    <Box p={[0, 1.66, -0.55]} s={[2.04, 1.64, 0.04]} c="#d9a43a" t={0.03} />
   </group>
 );
 
 const Exhibit: React.FC<{z: number; ex: Ex; t: number; scale?: number; lift?: number}> = ({z, ex, t, scale = 1, lift = 0}) => {
-  const tw = 1.3 * scale;
-  const maxH = 1.55 * scale;
+  const tw = 1.65 * scale;
+  const maxH = 1.4 * scale;
   let w = tw, h = (tw * ex.h) / ex.w;
   if (h > maxH) { h = maxH; w = (h * ex.w) / ex.h; }
   const bottom = 0.89 - (ex.pad * w) / (ex.w - 2 * ex.pad) * 0.5;
@@ -230,10 +243,11 @@ const Detective: React.FC<{t: number; a: Assets}> = ({t, a}) => {
   const bob = walking ? Math.abs(Math.sin(ph * Math.PI * 2)) * 0.08 : 0;
   const lean = walking ? Math.sin(ph * Math.PI * 2) * 0.06 : 0;
   const sc = 1 + 0.14 * d.pop;
+  const cx = (m.vb.x + m.vb.w / 2) * S;
   return (
-    <group position={[d.x, 0, d.z + 0.3]}>
+    <group position={[d.x, d.hop, d.z + 0.3]} scale={[DET_SCALE, DET_SCALE, DET_SCALE]}>
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0.08, 0.012, 0]}><circleGeometry args={[0.5, 32]} /><meshBasicMaterial color="#3a2a40" transparent opacity={0.36} /></mesh>
-      <group position={[0, cy + bob, 0]} rotation={[0, 0, lean]} scale={[sc, sc, 1]}>
+      <group position={[cx, cy + bob, 0]} rotation={[0, 0, lean]} scale={[sc, sc, 1]}>
         <mesh><planeGeometry args={[w, h]} /><meshBasicMaterial map={m.tex} transparent alphaTest={0.02} toneMapped={false} /></mesh>
       </group>
     </group>
@@ -244,16 +258,21 @@ const Rig: React.FC<{t: number}> = ({t}) => {
   const {camera} = useThree();
   const k = track(t);
   const hold = stationHold(t);
-  const creep = Math.min(hold, 3.2) * 0.14 + (k.i < 0 ? k.hold * 0.5 : 0);
-  const cz = k.z + 6.5 - creep;
+  const intro = k.i < 0;
+  const ih = ss(clamp01(t / 2.0));
+  // hook: slow push-in from far back; stations: ease in, creep, and swing wide of the podiums while gliding
+  const dist = intro ? lerp(10.5, 6.2, ih) : 6.5 - Math.min(hold, 3.2) * 0.14;
+  const cz = k.z + dist;
+  const swing = !intro && k.moving ? 1.25 * Math.sin(Math.PI * k.u) : 0;
+  const cx = intro ? lerp(-0.2, CAM_X, ih) : CAM_X - swing;
   const sign = k.i % 2 ? -1 : 1;
-  const roll = THREE.MathUtils.degToRad((k.i < 0 ? 3.5 : sign * 3.2) * (k.moving ? Math.sin(Math.PI * k.u) * 0.6 + 0.4 : 1));
+  const rollDeg = intro ? lerp(5, 2, ih) : sign * 3.2 * (k.moving ? Math.sin(Math.PI * k.u) * 0.6 + 0.4 : 1);
   const kick = [W.six, W.five, W.four, W.three, W.two, W.jelly].reduce((m, c) => {
     const e = t - c; return e >= 0 && e < 0.22 ? (Math.round(e * 30) % 2 ? 1 : -1) * 0.035 * (1 - e / 0.22) : m;
   }, 0);
-  camera.position.set(CAM_X, 1.45 + kick, cz);
-  camera.lookAt(CAM_X, 1.3, k.z - creep * 0.2);
-  camera.rotateZ(roll);
+  camera.position.set(cx, 1.45 + kick, cz);
+  camera.lookAt(cx + swing * 0.3, 1.3, k.z);
+  camera.rotateZ(THREE.MathUtils.degToRad(rollDeg));
   (camera as THREE.PerspectiveCamera).fov = 56 - Math.min(hold, 3) * 0.6;
   camera.updateProjectionMatrix();
   return null;
@@ -275,8 +294,12 @@ export const Rank3D: React.FC<{hideCaptions?: boolean}> = ({hideCaptions = false
           <directionalLight position={[3, 6, 4]} intensity={2.2} color="#ffd9a0" />
           <Rig t={t} />
           <Hall />
-          <Podium z={Z_INTRO} c="#7a6a8a" />
-          <Exhibit z={Z_INTRO} ex={a.ex.jellyDark} t={t} />
+          {t < 2.0 && (
+            <group>
+              <Podium z={Z_INTRO} c="#7a6a8a" />
+              <Exhibit z={Z_INTRO} ex={a.ex.jellyDark} t={t} />
+            </group>
+          )}
           {ZS.map((z, i) => {
             const e = exhibitFor(i, t);
             return (
