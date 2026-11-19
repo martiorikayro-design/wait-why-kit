@@ -263,7 +263,7 @@ export const Rank3D: React.FC<{hideCaptions?: boolean}> = ({hideCaptions = false
   const frame = useCurrentFrame();
   const t = frame / RANK3D_FPS;
   const a = useAssets();
-  const flash = t >= 2.0 && t < 2.2 ? 1 - (t - 2.0) / 0.2 : 0;
+  const flash = t >= 2.0 && t < 2.12 ? 0.32 * (1 - (t - 2.0) / 0.12) : 0; // soft 3-frame pulse on the cut, never a full-white frame
   const k = track(t);
   return (
     <AbsoluteFill style={{background: '#f7e6b5'}}>
