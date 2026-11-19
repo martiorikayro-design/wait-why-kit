@@ -7,7 +7,7 @@ import {renderToStaticMarkup} from 'react-dom/server';
 import {Stick, walkLegs, ARM_REST_L, ARM_REST_R, Expr, Arm} from '../stick/Stick';
 import {Tortoise, Bowhead, Shark, Clam, GlassSponge, Jelly, Polyp} from '../rank/props';
 import {Aging, BabyDetective, Badge, Captions, W, levelAt} from '../rank/Scene';
-import {Box, Ball, toon, gradient, floorTex, wallTex, frameTex, smooth, lerp, clamp01} from './Scene3D';
+import {Box, Ball, toon, gradient, floorTex, wallTex, frameTex, canvasTex, smooth, lerp, clamp01} from './Scene3D';
 
 /**
  * "Animals that live the longest" in the 3D hall: six stations down a corridor, one per rank.
@@ -39,6 +39,8 @@ const DET_X = -0.95;
 const DET_SCALE = 0.85; // host is a bit smaller than the exhibit
 const ss = (u: number) => u * u * u * (u * (u * 6 - 15) + 10);
 const inv = (a: number, b: number, x: number) => clamp01((x - a) / (b - a));
+const easeOut = (u: number) => 1 - (1 - clamp01(u)) ** 3;
+const BABY_T = W.baby + 0.05; // the host has shrunk into a baby by now (a smoke puff hides the swap)
 
 /** which station the camera is heading to / at, and how far through the glide */
 const track = (t: number) => {
@@ -54,7 +56,7 @@ const stationHold = (t: number) => {
   return k.i >= 0 && !k.moving ? t - (T0[k.i] - GEND) : 0;
 };
 
-type Det = {key: string; z: number; x: number; lv: number; pop: number; hop: number};
+type Det = {key: string; z: number; x: number; lv: number; pop: number; hop: number; sc2: number; rot: number};
 const WALK_N = 6;
 const detAt = (t: number): Det => {
   const k = track(t);
@@ -64,7 +66,12 @@ const detAt = (t: number): Det => {
   const pop = t - lc < 0.35 ? 1 - (t - lc) / 0.35 : 0;
   // little hop on arrival at each station and when the hook lands
   const hop = [...T0.slice(0, 5), W.die].reduce((m, c) => { const e = t - c; return e >= 0 && e < 0.35 ? 0.14 * Math.sin((Math.PI * e) / 0.35) : m; }, 0);
-  if (t >= W.baby) return {key: 'baby', z: ZS[5], x: DET_X, lv, pop, hop};
+  // old host spins and shrinks, then the baby springs up out of the puff
+  const e1 = inv(BABY_T - 0.35, BABY_T, t);
+  const ab = inv(BABY_T, BABY_T + 0.5, t);
+  const sc2 = t < BABY_T ? 1 - 0.88 * ss(e1) : Math.max(0.05, 1 - Math.exp(-6 * ab) * Math.cos(10 * ab));
+  const rot = t < BABY_T ? Math.PI * 2 * ss(e1) : 0;
+  if (t >= BABY_T) return {key: 'baby', z: ZS[5], x: DET_X + 0.75 * ss(inv(23.0, 24.3, t)), lv, pop: 0, hop: 0, sc2, rot};
   const react = (t0: number) => t > t0 && t < t0 + 0.6;
   let expr: Expr = 'neutral';
   if (t < 2.0) expr = t > W.die - 0.1 ? 'surprised' : 'happy';
@@ -79,9 +86,9 @@ const detAt = (t: number): Det => {
   if (k.moving) {
     const dist = Math.abs(k.z - k.from);
     const ph = (dist / 1.15) % 1;
-    return {key: `w${lv}_${Math.floor(ph * WALK_N) % WALK_N}`, z: k.z, x, lv, pop, hop};
+    return {key: `w${lv}_${Math.floor(ph * WALK_N) % WALK_N}`, z: k.z, x, lv, pop, hop, sc2, rot};
   }
-  return {key: `s${lv}_${expr}_${pose}`, z: k.z, x, lv, pop, hop};
+  return {key: `s${lv}_${expr}_${pose}`, z: k.z, x, lv, pop, hop, sc2, rot};
 };
 
 /* ---------- textures ---------- */
@@ -210,12 +217,73 @@ const Podium: React.FC<{z: number; c: string; back?: boolean}> = ({z, c}) => (
   </group>
 );
 
-const Exhibit: React.FC<{z: number; ex: Ex; t: number; scale?: number; lift?: number}> = ({z, ex, t, scale = 1, lift = 0}) => {
-  const tw = 1.65 * scale;
-  const maxH = 1.4 * scale;
+const fitEx = (ex: Ex, scale: number) => {
+  const tw = 1.65 * scale, maxH = 1.4 * scale;
   let w = tw, h = (tw * ex.h) / ex.w;
   if (h > maxH) { h = maxH; w = (h * ex.w) / ex.h; }
-  const bottom = 0.89 - (ex.pad * w) / (ex.w - 2 * ex.pad) * 0.5;
+  return {w, h, bottom: 0.89 - (ex.pad * w) / (ex.w - 2 * ex.pad) * 0.5};
+};
+
+/** Cartoon smoke puff (white blobs with ink outline) that covers a swap. */
+const Poof: React.FC<{pos: [number, number, number]; size: number; t: number; t0: number; t1: number}> = ({pos, size, t, t0, t1}) => {
+  const tex = useMemo(() => canvasTex(256, 256, (g) => {
+    g.lineWidth = 9; g.strokeStyle = '#1C1A17'; g.fillStyle = '#FBF8F1';
+    [[128, 64, 56], [62, 112, 52], [194, 112, 52], [88, 178, 50], [168, 178, 50], [128, 124, 58]].forEach(([x, y, r]) => { g.beginPath(); g.arc(x, y, r, 0, 7); g.stroke(); });
+    [[128, 64, 56], [62, 112, 52], [194, 112, 52], [88, 178, 50], [168, 178, 50], [128, 124, 58]].forEach(([x, y, r]) => { g.beginPath(); g.arc(x, y, r - 4, 0, 7); g.fill(); });
+  }), []);
+  const p = inv(t0, t1, t);
+  if (p <= 0 || p >= 1) return null;
+  const sc = size * (0.35 + 1.0 * easeOut(p));
+  return (
+    <mesh position={pos} scale={[sc, sc, 1]} renderOrder={20}>
+      <planeGeometry args={[1, 1]} />
+      <meshBasicMaterial map={tex} transparent opacity={0.9 * Math.pow(Math.sin(Math.PI * p), 0.8)} depthWrite={false} toneMapped={false} />
+    </mesh>
+  );
+};
+
+/** #1: the jellyfish droops, shrinks into its polyp, and the polyp buds baby jellyfish - all cross-faded, no swaps. */
+const JellyFinale: React.FC<{z: number; a: Assets; t: number}> = ({z, a, t}) => {
+  const droop = ss(inv(W.hurt, W.hurt + 0.55, t));
+  const toPoly = ss(inv(W.turn, W.turn + 0.8, t));
+  const jelly = a.ex.jelly, dr = a.ex.jellyDroop, pp = a.ex.polyp;
+  const fj = fitEx(jelly, 1), fd = fitEx(dr, 1), fp = fitEx(pp, 0.7);
+  const lift = lerp(0.25, 0, droop) + 0.04 * Math.sin(t * 2.2) * (1 - droop);
+  const shrink = 1 - 0.4 * toPoly;
+  const tilt = -0.22 * droop * (1 - toPoly);
+  const y0 = (f: {h: number; bottom: number}, sc: number) => f.bottom + (f.h * sc) / 2 + lift * (1 - toPoly);
+  const planes: {ex: Ex; f: ReturnType<typeof fitEx>; op: number; sc: number; rz: number; ro: number}[] = [
+    {ex: jelly, f: fj, op: (1 - droop) * (1 - toPoly), sc: shrink, rz: 0, ro: 1},
+    {ex: dr, f: fd, op: droop * (1 - toPoly), sc: shrink, rz: tilt, ro: 2},
+    {ex: pp, f: fp, op: toPoly, sc: 0.65 + 0.35 * toPoly, rz: 0, ro: 3},
+  ];
+  return (
+    <group>
+      {planes.map(({ex, f, op, sc, rz, ro}) => op > 0.002 && (
+        <mesh key={ro} position={[PX_POD, y0(f, sc), z - 0.2]} rotation={[0, 0, rz]} scale={[sc, sc, 1]} renderOrder={ro}>
+          <planeGeometry args={[f.w, f.h]} />
+          <meshBasicMaterial map={ex.tex} transparent opacity={op} alphaTest={0.01} depthWrite={false} toneMapped={false} />
+        </mesh>
+      ))}
+      {[0, 1, 2].map((i) => {
+        const u = inv(W.start - 0.15 + 0.22 * i, 24.9, t);
+        if (u <= 0) return null;
+        const sz = 0.3 * Math.min(1, u * 5);
+        const f = fitEx(jelly, sz);
+        return (
+          <mesh key={`b${i}`} position={[PX_POD + (i - 1) * 0.42 + Math.sin(t * 2 + i) * 0.1 * u, 1.2 + 0.85 * easeOut(u) + 0.03 * Math.sin(t * 3 + i), z - 0.15]} renderOrder={5 + i}>
+            <planeGeometry args={[f.w, f.h]} />
+            <meshBasicMaterial map={jelly.tex} transparent opacity={Math.min(1, u * 6)} alphaTest={0.01} depthWrite={false} toneMapped={false} />
+          </mesh>
+        );
+      })}
+      <Poof pos={[PX_POD, 1.65, z + 0.1]} size={1.05} t={t} t0={W.turn + 0.05} t1={W.turn + 0.95} />
+    </group>
+  );
+};
+
+const Exhibit: React.FC<{z: number; ex: Ex; t: number; scale?: number; lift?: number}> = ({z, ex, t, scale = 1, lift = 0}) => {
+  const {w, h, bottom} = fitEx(ex, scale);
   return (
     <mesh position={[PX_POD, bottom + h / 2 + lift + 0.03 * Math.sin(t * 2.2 + z), z - 0.2]}>
       <planeGeometry args={[w, h]} />
@@ -242,12 +310,15 @@ const Detective: React.FC<{t: number; a: Assets}> = ({t, a}) => {
   const ph = walking ? Number(d.key.split('_')[1]) / WALK_N : 0;
   const bob = walking ? Math.abs(Math.sin(ph * Math.PI * 2)) * 0.08 : 0;
   const lean = walking ? Math.sin(ph * Math.PI * 2) * 0.06 : 0;
-  const sc = 1 + 0.14 * d.pop;
+  const isBaby = d.key === 'baby';
+  const waddle = isBaby && t > 23.0 && t < 24.4 ? Math.sin(t * 13) : 0;
+  const idle = isBaby ? Math.abs(Math.sin(t * 7)) * 0.04 : 0;
+  const sc = (1 + 0.14 * d.pop) * d.sc2;
   const cx = (m.vb.x + m.vb.w / 2) * S;
   return (
-    <group position={[d.x, d.hop, d.z + 0.3]} scale={[DET_SCALE, DET_SCALE, DET_SCALE]}>
+    <group position={[d.x, d.hop + idle + Math.abs(waddle) * 0.05, d.z + 0.3]} scale={[DET_SCALE, DET_SCALE, DET_SCALE]}>
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0.08, 0.012, 0]}><circleGeometry args={[0.5, 32]} /><meshBasicMaterial color="#3a2a40" transparent opacity={0.36} /></mesh>
-      <group position={[cx, cy + bob, 0]} rotation={[0, 0, lean]} scale={[sc, sc, 1]}>
+      <group position={[cx * d.sc2, cy * d.sc2 + bob, 0]} rotation={[0, 0, lean + d.rot + waddle * 0.1]} scale={[sc, sc, 1]}>
         <mesh><planeGeometry args={[w, h]} /><meshBasicMaterial map={m.tex} transparent alphaTest={0.02} toneMapped={false} /></mesh>
       </group>
     </group>
@@ -261,10 +332,11 @@ const Rig: React.FC<{t: number}> = ({t}) => {
   const intro = k.i < 0;
   const ih = ss(clamp01(t / 2.0));
   // hook: slow push-in from far back; stations: ease in, creep, and swing wide of the podiums while gliding
-  const dist = intro ? lerp(10.5, 6.2, ih) : 6.5 - Math.min(hold, 3.2) * 0.14;
+  const fin = k.i === 5 ? ss(inv(W.turn, 25, t)) : 0; // last act: drift in and slightly right, toward vitrine + baby
+  const dist = (intro ? lerp(10.5, 6.2, ih) : 6.5 - Math.min(hold, 3.2) * 0.14) - 1.4 * fin;
   const cz = k.z + dist;
   const swing = !intro && k.moving ? 1.25 * Math.sin(Math.PI * k.u) : 0;
-  const cx = intro ? lerp(-0.2, CAM_X, ih) : CAM_X - swing;
+  const cx = (intro ? lerp(-0.2, CAM_X, ih) : CAM_X - swing) + 0.25 * fin;
   const sign = k.i % 2 ? -1 : 1;
   const rollDeg = intro ? lerp(5, 2, ih) : sign * 3.2 * (k.moving ? Math.sin(Math.PI * k.u) * 0.6 + 0.4 : 1);
   const kick = [W.six, W.five, W.four, W.three, W.two, W.jelly].reduce((m, c) => {
@@ -305,11 +377,12 @@ export const Rank3D: React.FC<{hideCaptions?: boolean}> = ({hideCaptions = false
             return (
               <group key={z}>
                 <Podium z={z} c={POD[i]} />
-                <Exhibit z={z} ex={a.ex[e.key]} t={t} scale={e.scale} lift={e.lift} />
+                {i === 5 ? <JellyFinale z={z} a={a} t={t} /> : <Exhibit z={z} ex={a.ex[e.key]} t={t} scale={e.scale} lift={e.lift} />}
               </group>
             );
           })}
           <Detective t={t} a={a} />
+          <Poof pos={[DET_X, 1.0, ZS[5] + 0.7]} size={0.9} t={t} t0={BABY_T - 0.4} t1={BABY_T + 0.5} />
         </ThreeCanvas>
       )}
       <Badge t={t} />
