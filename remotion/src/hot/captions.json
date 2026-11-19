@@ -1,0 +1,578 @@
+[
+ {
+  "start": 0.1,
+  "end": 1.135,
+  "words": [
+   {
+    "text": "THE",
+    "raw": "The",
+    "at": 0.15
+   },
+   {
+    "text": "AIR",
+    "raw": "air",
+    "at": 0.368
+   },
+   {
+    "text": "AROUND",
+    "raw": "around",
+    "at": 0.587
+   },
+   {
+    "text": "A",
+    "raw": "a",
+    "at": 0.967
+   }
+  ]
+ },
+ {
+  "start": 1.135,
+  "end": 2.353,
+  "words": [
+   {
+    "text": "LIGHTNING",
+    "raw": "lightning",
+    "at": 1.185
+   },
+   {
+    "text": "BOLT",
+    "raw": "bolt",
+    "at": 1.565
+   },
+   {
+    "text": "GETS",
+    "raw": "gets",
+    "at": 1.784
+   },
+   {
+    "text": "FIVE",
+    "raw": "five",
+    "at": 2.167
+   }
+  ]
+ },
+ {
+  "start": 2.353,
+  "end": 3.65,
+  "words": [
+   {
+    "text": "TIMES",
+    "raw": "times",
+    "at": 2.403
+   },
+   {
+    "text": "HOTTER",
+    "raw": "hotter",
+    "at": 2.815
+   },
+   {
+    "text": "THAN",
+    "raw": "than",
+    "at": 3.227
+   },
+   {
+    "text": "THE",
+    "raw": "the",
+    "at": 3.463
+   }
+  ]
+ },
+ {
+  "start": 3.65,
+  "end": 5.217,
+  "words": [
+   {
+    "text": "SURFACE",
+    "raw": "surface",
+    "at": 3.7
+   },
+   {
+    "text": "OF",
+    "raw": "of",
+    "at": 4.112
+   },
+   {
+    "text": "THE",
+    "raw": "the",
+    "at": 4.348
+   },
+   {
+    "text": "SUN",
+    "raw": "sun",
+    "at": 4.585
+   }
+  ]
+ },
+ {
+  "start": 5.217,
+  "end": 6.447,
+  "words": [
+   {
+    "text": "HERE",
+    "raw": "Here",
+    "at": 5.267
+   },
+   {
+    "text": "ARE",
+    "raw": "are",
+    "at": 5.526
+   },
+   {
+    "text": "THE",
+    "raw": "the",
+    "at": 5.785
+   },
+   {
+    "text": "HOTTEST",
+    "raw": "hottest",
+    "at": 6.045
+   }
+  ]
+ },
+ {
+  "start": 6.447,
+  "end": 6.917,
+  "words": [
+   {
+    "text": "THINGS",
+    "raw": "things",
+    "at": 6.497
+   }
+  ]
+ },
+ {
+  "start": 6.917,
+  "end": 7.866,
+  "words": [
+   {
+    "text": "RANKED",
+    "raw": "ranked",
+    "at": 6.967
+   }
+  ]
+ },
+ {
+  "start": 7.866,
+  "end": 8.943,
+  "words": [
+   {
+    "text": "NUMBER",
+    "raw": "Number",
+    "at": 7.916
+   },
+   {
+    "text": "SIX",
+    "raw": "six",
+    "at": 8.398
+   }
+  ]
+ },
+ {
+  "start": 8.943,
+  "end": 10.023,
+  "words": [
+   {
+    "text": "DEATH",
+    "raw": "Death",
+    "at": 8.993
+   },
+   {
+    "text": "VALLEY",
+    "raw": "Valley",
+    "at": 9.303
+   }
+  ]
+ },
+ {
+  "start": 10.023,
+  "end": 12.173,
+  "words": [
+   {
+    "text": "134",
+    "raw": "134",
+    "at": 10.073
+   },
+   {
+    "text": "DEGREES",
+    "raw": "degrees",
+    "at": 11.487
+   }
+  ]
+ },
+ {
+  "start": 12.173,
+  "end": 13.579,
+  "words": [
+   {
+    "text": "THE",
+    "raw": "the",
+    "at": 12.223
+   },
+   {
+    "text": "HOTTEST",
+    "raw": "hottest",
+    "at": 12.454
+   },
+   {
+    "text": "AIR",
+    "raw": "air",
+    "at": 12.856
+   },
+   {
+    "text": "EVER",
+    "raw": "ever",
+    "at": 13.263
+   }
+  ]
+ },
+ {
+  "start": 13.579,
+  "end": 14.53,
+  "words": [
+   {
+    "text": "RECORDED",
+    "raw": "recorded",
+    "at": 13.629
+   }
+  ]
+ },
+ {
+  "start": 14.53,
+  "end": 15.315,
+  "words": [
+   {
+    "text": "FIVE",
+    "raw": "Five",
+    "at": 14.58
+   }
+  ]
+ },
+ {
+  "start": 15.315,
+  "end": 16.865,
+  "words": [
+   {
+    "text": "MERCURY'S",
+    "raw": "Mercury's",
+    "at": 15.365
+   },
+   {
+    "text": "SUNNY",
+    "raw": "sunny",
+    "at": 15.997
+   },
+   {
+    "text": "SIDE",
+    "raw": "side",
+    "at": 16.44
+   }
+  ]
+ },
+ {
+  "start": 16.865,
+  "end": 18.2,
+  "words": [
+   {
+    "text": "ABOUT",
+    "raw": "about",
+    "at": 16.915
+   },
+   {
+    "text": "800",
+    "raw": "800",
+    "at": 17.29
+   }
+  ]
+ },
+ {
+  "start": 18.2,
+  "end": 18.92,
+  "words": [
+   {
+    "text": "FOUR",
+    "raw": "Four",
+    "at": 18.25
+   }
+  ]
+ },
+ {
+  "start": 18.92,
+  "end": 19.686,
+  "words": [
+   {
+    "text": "VENUS",
+    "raw": "Venus",
+    "at": 18.97
+   }
+  ]
+ },
+ {
+  "start": 19.686,
+  "end": 21.356,
+  "words": [
+   {
+    "text": "ABOUT",
+    "raw": "about",
+    "at": 19.736
+   },
+   {
+    "text": "860",
+    "raw": "860",
+    "at": 20.107
+   }
+  ]
+ },
+ {
+  "start": 21.356,
+  "end": 22.458,
+  "words": [
+   {
+    "text": "IT'S",
+    "raw": "It's",
+    "at": 21.406
+   },
+   {
+    "text": "FARTHER",
+    "raw": "farther",
+    "at": 21.638
+   },
+   {
+    "text": "FROM",
+    "raw": "from",
+    "at": 22.043
+   },
+   {
+    "text": "THE",
+    "raw": "the",
+    "at": 22.275
+   }
+  ]
+ },
+ {
+  "start": 22.458,
+  "end": 23.499,
+  "words": [
+   {
+    "text": "SUN",
+    "raw": "sun",
+    "at": 22.508
+   },
+   {
+    "text": "THAN",
+    "raw": "than",
+    "at": 22.74
+   },
+   {
+    "text": "MERCURY",
+    "raw": "Mercury",
+    "at": 22.972
+   }
+  ]
+ },
+ {
+  "start": 23.499,
+  "end": 24.661,
+  "words": [
+   {
+    "text": "BUT",
+    "raw": "but",
+    "at": 23.549
+   },
+   {
+    "text": "ITS",
+    "raw": "its",
+    "at": 23.782
+   },
+   {
+    "text": "THICK",
+    "raw": "thick",
+    "at": 24.014
+   },
+   {
+    "text": "AIR",
+    "raw": "air",
+    "at": 24.246
+   },
+   {
+    "text": "TRAPS",
+    "raw": "traps",
+    "at": 24.479
+   }
+  ]
+ },
+ {
+  "start": 24.661,
+  "end": 25.533,
+  "words": [
+   {
+    "text": "THE",
+    "raw": "the",
+    "at": 24.711
+   },
+   {
+    "text": "HEAT",
+    "raw": "heat",
+    "at": 24.944
+   }
+  ]
+ },
+ {
+  "start": 25.533,
+  "end": 26.269,
+  "words": [
+   {
+    "text": "THREE",
+    "raw": "Three",
+    "at": 25.583
+   }
+  ]
+ },
+ {
+  "start": 26.269,
+  "end": 27.863,
+  "words": [
+   {
+    "text": "THE",
+    "raw": "the",
+    "at": 26.319
+   },
+   {
+    "text": "SURFACE",
+    "raw": "surface",
+    "at": 26.542
+   },
+   {
+    "text": "OF",
+    "raw": "of",
+    "at": 26.932
+   },
+   {
+    "text": "THE",
+    "raw": "the",
+    "at": 27.156
+   },
+   {
+    "text": "SUN",
+    "raw": "sun",
+    "at": 27.379
+   }
+  ]
+ },
+ {
+  "start": 27.863,
+  "end": 29.292,
+  "words": [
+   {
+    "text": "10,000",
+    "raw": "10,000",
+    "at": 27.913
+   }
+  ]
+ },
+ {
+  "start": 29.292,
+  "end": 29.998,
+  "words": [
+   {
+    "text": "TWO",
+    "raw": "Two",
+    "at": 29.342
+   }
+  ]
+ },
+ {
+  "start": 29.998,
+  "end": 30.798,
+  "words": [
+   {
+    "text": "LIGHTNING",
+    "raw": "lightning",
+    "at": 30.048
+   }
+  ]
+ },
+ {
+  "start": 30.798,
+  "end": 32.026,
+  "words": [
+   {
+    "text": "50,000",
+    "raw": "50,000",
+    "at": 30.848
+   }
+  ]
+ },
+ {
+  "start": 32.026,
+  "end": 33.166,
+  "words": [
+   {
+    "text": "AND",
+    "raw": "And",
+    "at": 32.076
+   },
+   {
+    "text": "NUMBER",
+    "raw": "number",
+    "at": 32.311
+   },
+   {
+    "text": "ONE",
+    "raw": "one",
+    "at": 32.721
+   }
+  ]
+ },
+ {
+  "start": 33.166,
+  "end": 34.608,
+  "words": [
+   {
+    "text": "THE",
+    "raw": "the",
+    "at": 33.216
+   },
+   {
+    "text": "CORE",
+    "raw": "core",
+    "at": 33.454
+   },
+   {
+    "text": "OF",
+    "raw": "of",
+    "at": 33.692
+   },
+   {
+    "text": "THE",
+    "raw": "the",
+    "at": 33.93
+   },
+   {
+    "text": "SUN",
+    "raw": "sun",
+    "at": 34.168
+   }
+  ]
+ },
+ {
+  "start": 34.608,
+  "end": 37.663,
+  "words": [
+   {
+    "text": "OVER",
+    "raw": "over",
+    "at": 34.658
+   },
+   {
+    "text": "27M",
+    "raw": "27M",
+    "at": 35.153
+   },
+   {
+    "text": "DEGREES",
+    "raw": "degrees",
+    "at": 36.567
+   }
+  ]
+ }
+]

@@ -7,6 +7,7 @@ import {ChiliShort, CHILI_DUR} from './chili2/Scene';
 import {RankShort, RANK_DUR} from './rank/Scene';
 import {World3D, W3D_DUR} from './world3d/Scene3D';
 import {Rank3D, RANK3D_DUR} from './world3d/Rank3D';
+import {Hot3D, HOT_DUR} from './world3d/Hot3D';
 import {IntroHowPreview, PREVIEW_DUR, StingerCard, OutroPreview, OUTRO_PREVIEW_DUR} from './stinger/Preview';
 
 export const RemotionRoot: React.FC = () => (
@@ -25,6 +26,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="MonaLisa60" component={MonaLisaShort} durationInFrames={MONA_FRAMES * 2} fps={60} width={1080} height={1920} />
     <Composition id="World3D" component={World3D} durationInFrames={W3D_DUR * 30} fps={30} width={1080} height={1920} />
     <Composition id="Rank3D" component={Rank3D} durationInFrames={RANK3D_DUR * 30} fps={30} width={1080} height={1920} />
+    <Composition id="Hot3D" component={Hot3D} durationInFrames={Math.round(HOT_DUR * 30)} fps={30} width={1080} height={1920} />
     <Composition id="MascotSheet" component={MascotSheet} durationInFrames={1} fps={30} width={1920} height={1080} />
     <Composition id="CharacterSheet" component={CharacterSheet} durationInFrames={1} fps={30} width={1920} height={1080} />
     <Composition id="Profile" component={ProfileStick} durationInFrames={1} fps={30} width={800} height={800} />

@@ -18,28 +18,28 @@ export const RANK3D_FPS = 30;
 export const RANK3D_DUR = 25;
 const FRAMES = RANK3D_DUR * RANK3D_FPS;
 
-const DET_VB = {x: -190, y: -745, w: 420, h: 770}; // wider on the right so a pointing arm fits
-const BABY_VB = {x: -150, y: -340, w: 300, h: 370};
-const S = 2.15 / DET_VB.h; // metres per svg unit
-const PX = 1.35; // texture pixels per svg unit
+export const DET_VB = {x: -190, y: -745, w: 420, h: 770}; // wider on the right so a pointing arm fits
+export const BABY_VB = {x: -150, y: -340, w: 300, h: 370};
+export const S = 2.15 / DET_VB.h; // metres per svg unit
+export const PX = 1.35; // texture pixels per svg unit
 
-const svgUrl = (inner: React.ReactElement, vb: {x: number; y: number; w: number; h: number}) =>
+export const svgUrl = (inner: React.ReactElement, vb: {x: number; y: number; w: number; h: number}) =>
   'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(
     renderToStaticMarkup(<svg xmlns="http://www.w3.org/2000/svg" width={Math.round(vb.w * PX)} height={Math.round(vb.h * PX)} viewBox={`${vb.x} ${vb.y} ${vb.w} ${vb.h}`}>{inner}</svg>)
   );
 
 /* ---------- timeline ---------- */
 const T0 = [W.six, W.five, W.four, W.three, W.two, 17.96]; // arrival word of each station (#6 .. #1)
-const ZS = [-4, -12, -20, -28, -36, -44]; // station z
-const Z_INTRO = 2;
-const GLIDE = 1.9, GEND = 0.15;
-const PX_POD = 1.15; // podium centre (right of the camera/host path, nothing ever crosses it)
-const CAM_X = 0.15;
-const DET_X = -0.95;
-const DET_SCALE = 0.85; // host is a bit smaller than the exhibit
-const ss = (u: number) => u * u * u * (u * (u * 6 - 15) + 10);
-const inv = (a: number, b: number, x: number) => clamp01((x - a) / (b - a));
-const easeOut = (u: number) => 1 - (1 - clamp01(u)) ** 3;
+export const ZS = [-4, -12, -20, -28, -36, -44]; // station z
+export const Z_INTRO = 2;
+export const GLIDE = 1.9, GEND = 0.15;
+export const PX_POD = 1.15; // podium centre (right of the camera/host path, nothing ever crosses it)
+export const CAM_X = 0.15;
+export const DET_X = -0.95;
+export const DET_SCALE = 0.85; // host is a bit smaller than the exhibit
+export const ss = (u: number) => u * u * u * (u * (u * 6 - 15) + 10);
+export const inv = (a: number, b: number, x: number) => clamp01((x - a) / (b - a));
+export const easeOut = (u: number) => 1 - (1 - clamp01(u)) ** 3;
 const BABY_T = W.baby + 0.05; // the host has shrunk into a baby by now (a smoke puff hides the swap)
 
 /** which station the camera is heading to / at, and how far through the glide */
@@ -57,7 +57,7 @@ const stationHold = (t: number) => {
 };
 
 type Det = {key: string; z: number; x: number; lv: number; pop: number; hop: number; sc2: number; rot: number};
-const WALK_N = 6;
+export const WALK_N = 6;
 const detAt = (t: number): Det => {
   const k = track(t);
   const lv = levelAt(t);
@@ -92,7 +92,7 @@ const detAt = (t: number): Det => {
 };
 
 /* ---------- textures ---------- */
-const walkArms = (ph: number): [Arm, Arm] => {
+export const walkArms = (ph: number): [Arm, Arm] => {
   const a = Math.sin(ph * Math.PI * 2);
   return [{elbow: [-74, -330 + 10 * a], hand: [-80 - 4 * a, -250 + 24 * a]}, {elbow: [74, -330 - 10 * a], hand: [80 + 4 * a, -250 - 24 * a]}];
 };
@@ -115,7 +115,7 @@ const detSvg = (key: string): {url: string; vb: typeof DET_VB} => {
   return {url: svgUrl(<g><Stick outfit="detective" expr={expr} armL={armL} armR={armR} prop={hold} seed={7} /><Aging lv={lv} t={0} /></g>, DET_VB), vb: DET_VB};
 };
 
-type Ex = {tex: THREE.Texture; w: number; h: number; pad: number};
+export type Ex = {tex: THREE.Texture; w: number; h: number; pad: number};
 const EXHIBITS: Record<string, () => React.ReactElement> = {
   tortoise: () => <Tortoise t={0} seed={9} />,
   bowhead: () => <Bowhead t={0} seed={11} />,
@@ -127,7 +127,7 @@ const EXHIBITS: Record<string, () => React.ReactElement> = {
   jellyDroop: () => <Jelly t={0} droop={1} seed={3} />,
   polyp: () => <Polyp t={0} grow={1} seed={7} />,
 };
-const measure = (el: React.ReactElement) => {
+export const measure = (el: React.ReactElement) => {
   const host = document.createElement('div');
   host.style.cssText = 'position:absolute;left:-9999px;top:0;visibility:hidden';
   host.innerHTML = renderToStaticMarkup(<svg xmlns="http://www.w3.org/2000/svg" width={2000} height={2000} viewBox="-1000 -1000 2000 2000"><g>{el}</g></svg>);
@@ -137,7 +137,7 @@ const measure = (el: React.ReactElement) => {
   return bb;
 };
 
-const load = (loader: THREE.TextureLoader, url: string) =>
+export const load = (loader: THREE.TextureLoader, url: string) =>
   new Promise<THREE.Texture>((res, rej) => loader.load(url, (t) => { t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; res(t); }, undefined, rej));
 
 type Assets = {det: Record<string, {tex: THREE.Texture; vb: typeof DET_VB}>; ex: Record<string, Ex>};
@@ -170,7 +170,7 @@ const HALL_Z0 = -53, HALL_Z1 = 16, HL = HALL_Z1 - HALL_Z0;
 const POD = ['#e0554a', '#2f9e9a', '#6c4bb8', '#4aa54a', '#d9a43a', '#e0554a'];
 const EX_KEYS = ['tortoise', 'bowhead', 'shark', 'clam', 'sponge', 'jelly'];
 
-const Hall: React.FC = () => {
+export const Hall: React.FC = () => {
   const floor = useMemo(() => { const t = floorTex(); t.repeat.set(3, 30); return t; }, []);
   const wall = useMemo(wallTex, []);
   const frames = useMemo(() => [0, 1, 2, 3].map(frameTex), []);
@@ -207,17 +207,17 @@ const Hall: React.FC = () => {
   );
 };
 
-const Podium: React.FC<{z: number; c: string; back?: boolean}> = ({z, c}) => (
+export const Podium: React.FC<{z: number; c: string; panel?: string}> = ({z, c, panel = '#7db4b8'}) => (
   <group position={[PX_POD, 0, z]}>
     <Box p={[0, 0.4, 0]} s={[1.7, 0.8, 1.1]} c={c} />
     <Box p={[0, 0.84, 0]} s={[1.82, 0.08, 1.22]} c="#fff6df" t={0.025} />
     {/* small light aquarium window instead of a wall-sized dark panel */}
-    <Box p={[0, 1.66, -0.5]} s={[1.9, 1.5, 0.06]} c="#7db4b8" t={0.03} />
+    <Box p={[0, 1.66, -0.5]} s={[1.9, 1.5, 0.06]} c={panel} t={0.03} />
     <Box p={[0, 1.66, -0.55]} s={[2.04, 1.64, 0.04]} c="#d9a43a" t={0.03} />
   </group>
 );
 
-const fitEx = (ex: Ex, scale: number) => {
+export const fitEx = (ex: Ex, scale: number) => {
   const tw = 1.65 * scale, maxH = 1.4 * scale;
   let w = tw, h = (tw * ex.h) / ex.w;
   if (h > maxH) { h = maxH; w = (h * ex.w) / ex.h; }
@@ -225,7 +225,7 @@ const fitEx = (ex: Ex, scale: number) => {
 };
 
 /** Cartoon smoke puff (white blobs with ink outline) that covers a swap. */
-const Poof: React.FC<{pos: [number, number, number]; size: number; t: number; t0: number; t1: number}> = ({pos, size, t, t0, t1}) => {
+export const Poof: React.FC<{pos: [number, number, number]; size: number; t: number; t0: number; t1: number}> = ({pos, size, t, t0, t1}) => {
   const tex = useMemo(() => canvasTex(256, 256, (g) => {
     g.lineWidth = 9; g.strokeStyle = '#1C1A17'; g.fillStyle = '#FBF8F1';
     [[128, 64, 56], [62, 112, 52], [194, 112, 52], [88, 178, 50], [168, 178, 50], [128, 124, 58]].forEach(([x, y, r]) => { g.beginPath(); g.arc(x, y, r, 0, 7); g.stroke(); });
@@ -282,7 +282,7 @@ const JellyFinale: React.FC<{z: number; a: Assets; t: number}> = ({z, a, t}) => 
   );
 };
 
-const Exhibit: React.FC<{z: number; ex: Ex; t: number; scale?: number; lift?: number}> = ({z, ex, t, scale = 1, lift = 0}) => {
+export const Exhibit: React.FC<{z: number; ex: Ex; t: number; scale?: number; lift?: number}> = ({z, ex, t, scale = 1, lift = 0}) => {
   const {w, h, bottom} = fitEx(ex, scale);
   return (
     <mesh position={[PX_POD, bottom + h / 2 + lift + 0.03 * Math.sin(t * 2.2 + z), z - 0.2]}>

@@ -1,0 +1,32 @@
+WAIT, WHY? — RANKING: THE HOTTEST THINGS (versão 3D)
+Arquivo: wait-why-hottest-things-3d.mp4   |   Legenda: hot-en.srt
+Voz: ElevenLabs "Gregory" (eleven_v4). Música: Kevin MacLeod "Investigations" (CC BY 4.0). Efeitos: sintetizados.
+
+TITLE (sugestões, escolher uma):
+- A Lightning Bolt Is 5x Hotter Than the Sun's Surface (Hottest Things, Ranked)
+- Venus Is Hotter Than Mercury. Why? (The Hottest Things, Ranked)
+- The Hottest Things in the Universe, Ranked
+
+DESCRIPTION:
+The air around a lightning bolt can reach about 50,000°F, about five times hotter than the surface of the sun. Here are six of the hottest things, ranked: Death Valley's record air, Mercury's sunny side, Venus, the sun's surface, lightning, and the sun's core.
+
+Notes:
+- Death Valley's 134°F (July 10, 1913) is the highest air temperature on record, certified by the WMO in 2012. Some researchers question the 1913 reading.
+- Mercury's sunny side reaches about 800°F (~430°C). Venus averages about 860°F (~465°C) day and night, hotter than Mercury because its thick carbon dioxide air traps heat.
+- The sun's surface is about 10,000°F; its core is more than 27 million°F (NASA).
+- The ~50,000°F figure for lightning is the air heated around the bolt, and only for a moment.
+
+Sources:
+NOAA / National Weather Service, lightning temperature: https://www.weather.gov/safety/lightning-temperature
+NASA, Sun facts: https://science.nasa.gov/sun/facts
+Venus vs Mercury (Sky at Night Magazine): https://skyatnightmagazine.com/space-science/venus-hottest-planet
+Highest recorded air temperature (Guinness World Records): https://guinnessworldrecords.com/world-records/highest-recorded-temperature
+Live Science, the 1913 reading questioned: https://www.livescience.com/planet-earth/weather/death-valleys-worlds-hottest-temperature-record-may-be-due-to-a-human-error
+
+Music: "Investigations" Kevin MacLeod (incompetech.com), licensed under Creative Commons: By Attribution 4.0 (creativecommons.org/licenses/by/4.0/)
+
+#shorts #science #space #weather #ranking
+
+(Tradução: O ar ao redor de um raio chega a uns 50.000°F, cerca de cinco vezes mais quente que a superfície do sol. Aqui estão seis das coisas mais quentes, em ranking: o ar recorde do Vale da Morte, o lado ensolarado de Mercúrio, Vênus, a superfície do sol, o raio e o núcleo do sol.)
+
+PARA A PRÓXIMA VEZ: o roteiro e a conferência dos fatos estão em examples/hot/ (script.txt, words.json, merges.json).
