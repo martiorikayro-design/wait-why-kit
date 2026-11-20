@@ -35,10 +35,10 @@ export const DeathValley: React.FC<{t: number; seed?: number}> = ({t, seed = 1})
     {[[-1, 0], [1, 0]].map((_, i) => <Line key={i} pts={[[183, -230 + i * 70], [183, -190 + i * 70]]} w={3} seed={seed + 5 + i} taper={0.5} color="#4B7E44" />)}
     <Thermometer x={-150} level={0.92} seed={seed + 8} />
     {/* blazing little sun */}
-    <g transform={`translate(-250 -330) rotate(${t * 20})`}>
+    <g transform={`translate(262 -350) rotate(${t * 20})`}>
       <Shape pts={ray(0, 0, 70, 104, 9)} fill="#F5B82E" w={5} seed={seed + 20} />
     </g>
-    <Shape pts={circlePts(-250, -330, 62, seed + 21, 12)} fill="#FFD54A" w={6} seed={seed + 21} />
+    <Shape pts={circlePts(262, -350, 62, seed + 21, 12)} fill="#FFD54A" w={6} seed={seed + 21} />
   </g>
 );
 

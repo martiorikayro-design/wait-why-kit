@@ -1,0 +1,491 @@
+[
+ {
+  "start": 0.1,
+  "end": 1.08,
+  "words": [
+   {
+    "text": "THE",
+    "raw": "The",
+    "at": 0.15
+   },
+   {
+    "text": "COLDEST",
+    "raw": "coldest",
+    "at": 0.41
+   },
+   {
+    "text": "PLACE",
+    "raw": "place",
+    "at": 0.87
+   }
+  ]
+ },
+ {
+  "start": 1.08,
+  "end": 2.52,
+  "words": [
+   {
+    "text": "IN",
+    "raw": "in",
+    "at": 1.13
+   },
+   {
+    "text": "THE",
+    "raw": "the",
+    "at": 1.39
+   },
+   {
+    "text": "UNIVERSE",
+    "raw": "universe",
+    "at": 1.65
+   },
+   {
+    "text": "IS",
+    "raw": "is",
+    "at": 2.31
+   }
+  ]
+ },
+ {
+  "start": 2.52,
+  "end": 4.41,
+  "words": [
+   {
+    "text": "COLDER",
+    "raw": "colder",
+    "at": 2.57
+   },
+   {
+    "text": "THAN",
+    "raw": "than",
+    "at": 3.03
+   },
+   {
+    "text": "SPACE",
+    "raw": "space",
+    "at": 3.29
+   },
+   {
+    "text": "ITSELF",
+    "raw": "itself",
+    "at": 3.55
+   }
+  ]
+ },
+ {
+  "start": 4.41,
+  "end": 5.65,
+  "words": [
+   {
+    "text": "HERE",
+    "raw": "Here",
+    "at": 4.46
+   },
+   {
+    "text": "ARE",
+    "raw": "are",
+    "at": 4.72
+   },
+   {
+    "text": "THE",
+    "raw": "the",
+    "at": 4.98
+   },
+   {
+    "text": "COLDEST",
+    "raw": "coldest",
+    "at": 5.24
+   }
+  ]
+ },
+ {
+  "start": 5.65,
+  "end": 6.21,
+  "words": [
+   {
+    "text": "THINGS",
+    "raw": "things",
+    "at": 5.7
+   }
+  ]
+ },
+ {
+  "start": 6.21,
+  "end": 7.12,
+  "words": [
+   {
+    "text": "RANKED",
+    "raw": "ranked",
+    "at": 6.26
+   }
+  ]
+ },
+ {
+  "start": 7.12,
+  "end": 8.29,
+  "words": [
+   {
+    "text": "NUMBER",
+    "raw": "Number",
+    "at": 7.17
+   },
+   {
+    "text": "SIX",
+    "raw": "six",
+    "at": 7.63
+   }
+  ]
+ },
+ {
+  "start": 8.29,
+  "end": 9.45,
+  "words": [
+   {
+    "text": "ANTARCTICA",
+    "raw": "Antarctica",
+    "at": 8.34
+   }
+  ]
+ },
+ {
+  "start": 9.45,
+  "end": 12.05,
+  "words": [
+   {
+    "text": "-129",
+    "raw": "-129",
+    "at": 9.5
+   },
+   {
+    "text": "DEGREES",
+    "raw": "degrees",
+    "at": 11.34
+   }
+  ]
+ },
+ {
+  "start": 12.05,
+  "end": 13.49,
+  "words": [
+   {
+    "text": "THE",
+    "raw": "the",
+    "at": 12.1
+   },
+   {
+    "text": "COLDEST",
+    "raw": "coldest",
+    "at": 12.36
+   },
+   {
+    "text": "AIR",
+    "raw": "air",
+    "at": 12.82
+   },
+   {
+    "text": "EVER",
+    "raw": "ever",
+    "at": 13.08
+   }
+  ]
+ },
+ {
+  "start": 13.49,
+  "end": 14.6,
+  "words": [
+   {
+    "text": "MEASURED",
+    "raw": "measured",
+    "at": 13.54
+   }
+  ]
+ },
+ {
+  "start": 14.6,
+  "end": 15.31,
+  "words": [
+   {
+    "text": "FIVE",
+    "raw": "Five",
+    "at": 14.65
+   }
+  ]
+ },
+ {
+  "start": 15.31,
+  "end": 16.73,
+  "words": [
+   {
+    "text": "LIQUID",
+    "raw": "liquid",
+    "at": 15.36
+   },
+   {
+    "text": "NITROGEN",
+    "raw": "nitrogen",
+    "at": 15.82
+   }
+  ]
+ },
+ {
+  "start": 16.73,
+  "end": 18.82,
+  "words": [
+   {
+    "text": "-321",
+    "raw": "-321",
+    "at": 16.78
+   }
+  ]
+ },
+ {
+  "start": 18.82,
+  "end": 19.53,
+  "words": [
+   {
+    "text": "FOUR",
+    "raw": "Four",
+    "at": 18.87
+   }
+  ]
+ },
+ {
+  "start": 19.53,
+  "end": 20.29,
+  "words": [
+   {
+    "text": "PLUTO",
+    "raw": "Pluto",
+    "at": 19.58
+   }
+  ]
+ },
+ {
+  "start": 20.29,
+  "end": 22.78,
+  "words": [
+   {
+    "text": "-393",
+    "raw": "-393",
+    "at": 20.34
+   }
+  ]
+ },
+ {
+  "start": 22.78,
+  "end": 23.49,
+  "words": [
+   {
+    "text": "THREE",
+    "raw": "Three",
+    "at": 22.83
+   }
+  ]
+ },
+ {
+  "start": 23.49,
+  "end": 24.73,
+  "words": [
+   {
+    "text": "CRATERS",
+    "raw": "craters",
+    "at": 23.54
+   },
+   {
+    "text": "ON",
+    "raw": "on",
+    "at": 24.0
+   },
+   {
+    "text": "THE",
+    "raw": "the",
+    "at": 24.26
+   },
+   {
+    "text": "MOON",
+    "raw": "Moon",
+    "at": 24.52
+   }
+  ]
+ },
+ {
+  "start": 24.73,
+  "end": 26.47,
+  "words": [
+   {
+    "text": "THAT",
+    "raw": "that",
+    "at": 24.78
+   },
+   {
+    "text": "NEVER",
+    "raw": "never",
+    "at": 25.04
+   },
+   {
+    "text": "SEE",
+    "raw": "see",
+    "at": 25.5
+   },
+   {
+    "text": "SUNLIGHT",
+    "raw": "sunlight",
+    "at": 25.76
+   }
+  ]
+ },
+ {
+  "start": 26.47,
+  "end": 29.94,
+  "words": [
+   {
+    "text": "AS",
+    "raw": "as",
+    "at": 26.52
+   },
+   {
+    "text": "LOW",
+    "raw": "low",
+    "at": 26.78
+   },
+   {
+    "text": "AS",
+    "raw": "as",
+    "at": 27.04
+   },
+   {
+    "text": "-397",
+    "raw": "-397",
+    "at": 27.3
+   }
+  ]
+ },
+ {
+  "start": 29.94,
+  "end": 30.65,
+  "words": [
+   {
+    "text": "TWO",
+    "raw": "Two",
+    "at": 29.99
+   }
+  ]
+ },
+ {
+  "start": 30.65,
+  "end": 32.53,
+  "words": [
+   {
+    "text": "THE",
+    "raw": "the",
+    "at": 30.7
+   },
+   {
+    "text": "BOOMERANG",
+    "raw": "Boomerang",
+    "at": 30.96
+   },
+   {
+    "text": "NEBULA",
+    "raw": "Nebula",
+    "at": 31.62
+   }
+  ]
+ },
+ {
+  "start": 32.53,
+  "end": 34.62,
+  "words": [
+   {
+    "text": "-458",
+    "raw": "-458",
+    "at": 32.58
+   }
+  ]
+ },
+ {
+  "start": 34.62,
+  "end": 36.05,
+  "words": [
+   {
+    "text": "AND",
+    "raw": "And",
+    "at": 34.67
+   },
+   {
+    "text": "NUMBER",
+    "raw": "number",
+    "at": 34.93
+   },
+   {
+    "text": "ONE",
+    "raw": "one",
+    "at": 35.39
+   }
+  ]
+ },
+ {
+  "start": 36.05,
+  "end": 37.47,
+  "words": [
+   {
+    "text": "ABSOLUTE",
+    "raw": "absolute",
+    "at": 36.1
+   },
+   {
+    "text": "ZERO",
+    "raw": "zero",
+    "at": 36.76
+   }
+  ]
+ },
+ {
+  "start": 37.47,
+  "end": 39.56,
+  "words": [
+   {
+    "text": "-460",
+    "raw": "-460",
+    "at": 37.52
+   }
+  ]
+ },
+ {
+  "start": 39.56,
+  "end": 41.0,
+  "words": [
+   {
+    "text": "NOTHING",
+    "raw": "Nothing",
+    "at": 39.61
+   },
+   {
+    "text": "CAN",
+    "raw": "can",
+    "at": 40.07
+   },
+   {
+    "text": "EVER",
+    "raw": "ever",
+    "at": 40.33
+   },
+   {
+    "text": "BE",
+    "raw": "be",
+    "at": 40.79
+   }
+  ]
+ },
+ {
+  "start": 41.0,
+  "end": 42.11,
+  "words": [
+   {
+    "text": "COLDER",
+    "raw": "colder",
+    "at": 41.05
+   }
+  ]
+ }
+]
