@@ -98,7 +98,7 @@ Dois formatos: **A) Ranking curto (Short 6 → 1)** e **B) Vídeo longo "E se…
 ## B) Vídeo longo "E se…?" (planejado; ainda não produzido)
 
 ### B1. Formato
-- Horizontal **1920×1080, 30 fps**, mesmo estilo 2D do canal (detetive, papel, legendas), **3–4 min** como primeiro teste. A pesquisa mostra que os vencedores têm **8–15 min**: aumentar em vídeos futuros.
+- Horizontal **1920×1080, 30 fps**, mesmo estilo 2D do canal (detetive, papel, legendas), **~2,5 min com o roteiro atual (335 palavras); 3–4 min com cenas extras** (ver `examples/whatif-sun/plano.md`). A pesquisa mostra que os vencedores têm **8–15 min**: aumentar em vídeos futuros.
 - Narração única (ElevenLabs "Gregory", um take por capítulo se o texto passar de ~3.000 caracteres), música de fundo contínua (−15 dB), efeitos sutis.
 
 ### B2. Premissa e título
@@ -112,7 +112,7 @@ Dois formatos: **A) Ranking curto (Short 6 → 1)** e **B) Vídeo longo "E se…
 3. **Escalada por linha do tempo**: cada capítulo maior ou mais estranho que o anterior (8:20 → 1 h → 1 dia → 1 semana → 1 ano → fundo do mar).
 4. **Virada**: a parte que ninguém espera (a vida muda para o fundo do mar).
 5. **Fecho** com a piada/ligação ao cotidiano ("you would get eight more minutes of sunshine. Enjoy them.").
-- ~500 palavras para 3,5 min (≈2,5 palavras/s). Cada capítulo com uma afirmação principal e **uma fonte**.
+- 335 palavras ≈ 2,5 min a ~2,5 palavras/s; ~500 palavras para 3,5 min. Plano completo, descrição, fontes e itens a verificar: `examples/whatif-sun/plano.md`. Cada capítulo com uma afirmação principal e **uma fonte**.
 - **Ciência**: só o que tem apoio. Tirar números fracos (ex.: temperatura exata após 1 semana/1 ano).
 
 ### B4. Animação (como cada cena é montada)
