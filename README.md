@@ -56,6 +56,10 @@ Licenses: Kokoro-82M Apache-2.0; Fredoka SIL OFL 1.1; all music/SFX synthesized 
 - Levels (v3, owner's choice): SFX 30 % of the voice (~ -10.5 dB, peaks <= 0.5x voice), music ~ -15 dB (music_ratio=0.18).
 - 144p previews: render with `--scale=0.25` and scale to 144x256 with ffmpeg (Remotion refuses non-integer heights).
 
+## Regras das animações (leia antes de fazer qualquer vídeo novo)
+- **`REGRAS-ANIMACAO.md`**: regras do ranking 2D (6 → 1) e do vídeo longo "E se…?": roteiro, imagem, câmera, áudio, pipeline, título e capa.
+- `pesquisa/pesquisa-youtube-2026-11-20.md`: o que os vídeos que mais bombaram fizeram.
+
 ## Atualização 2026-11-09 (GitHub)
 - Baixe com: `git clone https://github.com/martiorikayro-design/wait-why-kit.git` (público, sem senha).
 - A fonte já vem pronta em `remotion/public/fonts/Fredoka.ttf` (o .b64 continua como reserva).
